@@ -8,6 +8,7 @@
 
     <!--Fontsytle google link-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--Reload nodemon module-->
     <script src="/reload/reload.js"></script>
@@ -15,8 +16,52 @@
 </head>
 
 <body>
-    <h1>Hello world</h1>
-    <button type="button" onclick=fun()>Enter</button>
+    <div class="top-navbar">
+        <div class="more-button" onclick="sendMsg('hello', '1')">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="search-bar-container">
+            <div class="search-bar">
+                <input type="text" bar-field>
+            </div>
+            <div class="search-button" onclick="search()">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <!--<div class="top-title">KPLAYER</div>-->
+    </div>
+
+    <div class="side-panel">
+        <div class="search-card"></div>
+        <div class="playlist-card"></div>
+        <div class="downloaded-card"></div>
+        <div class="queque-card"></div>
+    </div>
+
+    <div class="image-preview"></div>
+    <div class="music-controller">
+        <div class="play-button"></div>
+        <div class="next-button"></div>
+        <div class="previous-button"></div>
+        <div class="download-button"></div>
+        <div class="add-playlist-button"></div>
+    </div>
+
+    <div class="videos-container">
+        <div class="videos-list"></div>
+        <!--<li></li>-->
+    </div>
+
+    <template video-card-template>
+        <div class="video-card">
+            <div class="thumbnail-holder"></div>
+            <div class="info-holder">
+                <div class="video-title"></div>
+                <div class="video-creator"></div>
+            </div>
+        </div>
+    </template>
+
 </body>
 
 </html>
