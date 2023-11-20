@@ -1,8 +1,10 @@
-const yts = require('yt-search')
-async function findVideo(keyword, range) {
+const yts = require('yt-search');
+
+async function find_video(keyword, range) {
     var data = await yts(keyword);
-    data.then(function(result) {
-        return result.videos.slice(0, range);
-    })
+    return data.videos.slice(0, range);
 }
-module.exports = findVideo;
+
+module.exports = {
+    find_video: find_video,
+}

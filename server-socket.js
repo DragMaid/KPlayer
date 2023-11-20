@@ -1,31 +1,68 @@
-module.exports = class MusicSocket {
-    constructor(port) {
-        this.port = port;
-        this.wsModule = require('ws');
-        this.wss = new this.wsModule.WebSocketServer({ port: this.port });
-        this.yt_search = require('./yt-search.js');
-    }
-    search(keyword) {
-        yt_search.findVideo(keyword);
-    }
-    listen() {
-        this.wss.on('connection', function connection(socket) {
-          socket.on('error', console.error);
-          socket.on('message', function message(data) {
-            const key_value = String(data).split(':');
-            switch (key_value[0]) {
-                case 'search':
-                    search(key_value[1]);
-                    break;
-                case 'download':
-                    break;
-                case 'playlist':
-                    break;
-                default:
-                    console.log("unrecognizable msg type: %s", key_value[0]);
-                    break;
-            }
-          });
-        });
-    }
+const ws_module = require('ws');
+const server = new ws_module.WebSocketServer({
+    port: 8080
+});
+const search_range = 3;
+const yt_search = require('./yt-search.js');
+
+function processVideo(data) {
+    return [data.thumbnail, data.title, data.author.name];
+}
+
+function send(socket, type, content) {
+    socket.send(JSON.stringify([type, content]));
+}
+
+function search_return(socket, data) {
+    var search_result = yt_search.find_video(data[0], search_range);
+    search_result.then((res) => {
+        res.forEach((vinfo) => {
+            send(socket, 'create', processVideo(vinfo));
+        })
+    });
+}
+
+function download_return() {}
+
+function playlist_return() {}
+
+function unknown_return(error) {
+    console.log("unrecognizable msg type: %s", error);
+}
+
+function error_event(socket) {
+    socket.on('error', console.error);
+}
+
+function message_event(socket) {
+    socket.on('message', function message(data) {
+        const processed_data = JSON.parse(data);
+        const key_value = processed_data[0];
+        const content_value = processed_data[1];
+        switch (key_value) {
+            case 'search':
+                search_return(socket, content_value);
+                break;
+            case 'download':
+                download_return();
+                break;
+            case 'playlist':
+                playlist_return();
+                break;
+            default:
+                unknown_return(key_value);
+                break;
+        }
+    });
+}
+
+function listen() {
+    server.on('connection', function connection(socket) {
+        error_event(socket);
+        message_event(socket);
+    });
+}
+
+module.exports = {
+    listen: listen,
 }

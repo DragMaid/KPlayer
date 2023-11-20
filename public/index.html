@@ -12,7 +12,6 @@
 
     <!--Reload nodemon module-->
     <script src="/reload/reload.js"></script>
-    <script src="index.js"></script>
 </head>
 
 <body>
@@ -38,30 +37,49 @@
         <div class="queque-card"></div>
     </div>
 
-    <div class="image-preview"></div>
-    <div class="music-controller">
-        <div class="play-button"></div>
-        <div class="next-button"></div>
-        <div class="previous-button"></div>
-        <div class="download-button"></div>
-        <div class="add-playlist-button"></div>
+    <div class="video-area">
+        <div class="image-preview"></div>
+        <div class="music-controller">
+            <div class="middle-controller">
+                <div class="previous-button">
+                    <i class="fa fa-step-backward"></i>
+                </div>
+                <div class="play-button">
+                    <i class="fa fa-play"></i>
+                </div>
+                <div class="next-button">
+                    <i class="fa fa-step-forward"></i>
+                </div>
+            </div>
+            <div class="download-button">
+                <i class="fa fa-download"></i>
+            </div>
+            <div class="add-playlist-button">
+                <i class="fa fa-plus"></i>
+            </div>
+        </div>
     </div>
 
     <div class="videos-container">
-        <div class="videos-list"></div>
-        <!--<li></li>-->
+        <div class="videos-wrapper">
+            <div class="videos-list" videos-list></div>
+        </div>
     </div>
 
     <template video-card-template>
-        <div class="video-card">
-            <div class="thumbnail-holder"></div>
-            <div class="info-holder">
-                <div class="video-title"></div>
-                <div class="video-creator"></div>
+        <div class="video-card" video-card>
+            <div class="thumbnail-holder" thumbnail-holder>
+                <img class="thumbnail" thumbnail></img>
+            </div>
+            <div class="info-holder" info-holder>
+                <div class="video-title" video-title></div>
+                <div class="video-creator" video-creator></div>
             </div>
         </div>
     </template>
 
 </body>
+
+<script src="client-socket.js"></script>
 
 </html>
