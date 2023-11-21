@@ -38,14 +38,14 @@
     </div>
 
     <div class="video-area">
-        <div class="image-preview"></div>
+        <img class="image-preview" img</img>
         <div class="music-controller">
             <div class="middle-controller">
                 <div class="previous-button">
                     <i class="fa fa-step-backward"></i>
                 </div>
-                <div class="play-button">
-                    <i class="fa fa-play"></i>
+                <div class="play-button" onclick="toggle_state()">
+                    <i class="fa fa-play" id="myicon"></i>
                 </div>
                 <div class="next-button">
                     <i class="fa fa-step-forward"></i>
@@ -54,7 +54,7 @@
             <div class="download-button">
                 <i class="fa fa-download"></i>
             </div>
-            <div class="add-playlist-button">
+            <div class="add-playlist-button" onclick="add_playlist()">
                 <i class="fa fa-plus"></i>
             </div>
         </div>
@@ -67,7 +67,7 @@
     </div>
 
     <template video-card-template>
-        <div class="video-card" video-card>
+        <div class="video-card" video-card onclick="card_func()">
             <div class="thumbnail-holder" thumbnail-holder>
                 <img class="thumbnail" thumbnail></img>
             </div>
@@ -80,6 +80,6 @@
 
 </body>
 
-<script src="client-socket.js"></script>
+<script src="./scripts/client-socket.js"></script>
 
-</html>
+</html

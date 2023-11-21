@@ -122,6 +122,11 @@
     color: var(--color-distinct);
 }
 
+.image-preview {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
 
 .download-button {
     position: absolute;

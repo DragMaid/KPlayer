@@ -11,7 +11,7 @@ socket.onmessage = function(event) {
     switch (key_value) {
         case 'create':
             const info = processed_data[1];
-            addCard(info[0], info[1], info[2]);
+            addCard(info[0], info[1], info[2], info[3]);
             break;
         default:
             console.log("unrecognizable msg type: %s", key_value[0]);
@@ -21,9 +21,9 @@ socket.onmessage = function(event) {
 
 socket.onclose = function(event) {
     if (event.wasClean) {
-        //alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+        alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
     } else {
-        //alert('[close] Connection died');
+        alert('[close] Connection died');
     }
 };
 
@@ -42,11 +42,41 @@ function search() {
     }
 }
 
+var current_video = [];
+function card_func(thumbnail, title, creator, url) {
+    const image_preview = document.querySelector('[img]');
+    console.log(image_preview);
+    image_preview.src = thumbnail;
+    document.getElementById('myicon').className = "fa fa-pause"; 
+    current_video = [thumbnail, title, creator, url];
+    if (url != null) {
+        sendMsg('open', [url]);
+    }
+}
+
+function toggle_state() {
+    const toggle_button = document.getElementById('myicon');
+    if (toggle_button.className == "fa fa-play") { 
+        toggle_button.className = "fa fa-pause";
+        sendMsg('pause', [true]);
+    } else {
+        toggle_button.className = "fa fa-play";
+        sendMsg('play', [true]);
+    }
+}
+
+function add_playlist() {
+    console.log("hello");
+    if (current_video.length > 0) {
+        sendMsg('add_playlist', current_video);
+    }
+}
+
 const videoCardTemplate = document.querySelector('[video-card-template]');
 console.log(videoCardTemplate);
 const videosList = document.querySelector('[videos-list]');
 
-function addCard(link, title, creator) {
+function addCard(link, title, creator, url) {
     const card = videoCardTemplate.content.cloneNode(true).children[0];
     const thumbnail = card.querySelector('[thumbnail]');
     const videoTitle = card.querySelector('[video-title]');
@@ -57,4 +87,5 @@ function addCard(link, title, creator) {
     videoCreator.textContent = creator;
 
     videosList.append(card);
+    card.addEventListener("click", function(){card_func(link, title, creator, url);});
 }

@@ -2,11 +2,13 @@ const ws_module = require('ws');
 const server = new ws_module.WebSocketServer({
     port: 8080
 });
-const search_range = 3;
+const search_range = 12;
 const yt_search = require('./yt-search.js');
+const mpv_control = require('./mpv-controller.js');
+const json_process = require('./json-process.js');
 
 function processVideo(data) {
-    return [data.thumbnail, data.title, data.author.name];
+    return [data.thumbnail, data.title, data.author.name, data.url];
 }
 
 function send(socket, type, content) {
@@ -20,6 +22,14 @@ function search_return(socket, data) {
             send(socket, 'create', processVideo(vinfo));
         })
     });
+}
+
+function open_return(socket, url) {
+    mpv_control.open(url[0]);
+}
+
+async function add_playlist_return(data) {
+    await json_process.add_playlist_item(data);
 }
 
 function download_return() {}
@@ -43,11 +53,23 @@ function message_event(socket) {
             case 'search':
                 search_return(socket, content_value);
                 break;
+            case 'open':
+                //open_return(socket, content_value);
+                break;
+            case 'add_playlist':
+                add_playlist_return(content_value);
+                break;
             case 'download':
                 download_return();
                 break;
             case 'playlist':
                 playlist_return();
+                break;
+            case 'play':
+                mpv_control.play();
+                break;
+            case 'pause':
+                mpv_control.pause();
                 break;
             default:
                 unknown_return(key_value);
