@@ -38,13 +38,13 @@ function add_json_item(data, type) {
                 var newJSON = JSON.stringify(obj);
                 writeFile(playlistPath, newJSON, (error) => {
                     if (error) { 
-                        console.log("Failed to add item: ", error);
+                        console.log("ERROR: Failed to add item: ", error);
                         return;
                     } else {
-                        console.log("Added new item to playlist!");
+                        console.log("INFO: Added new item to playlist!");
                     }
                 });
-            } else { console.log('item already existed!');  }
+            } else { console.log('INFO: Item already existed!');  }
         })
     })
 }

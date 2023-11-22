@@ -13,8 +13,8 @@ socket.listen();
 var server = http.createServer(app)
 reload(app).then(function(reloadReturned) {
     server.listen(app.get('port'), function() {
-        console.log('Web server listening on port ' + app.get('port'))
+        console.log('INFO: Web server listening on port ' + app.get('port'))
     })
 }).catch(function(err) {
-    console.error('Reload could not start, could not start server/sample app', err)
+    console.error('ERROR: Reload could not start, could not start server/sample app', err)
 })

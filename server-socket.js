@@ -25,10 +25,9 @@ function search_return(socket, data) {
 }
 
 function open_return(socket, url) {
-    var proc = new mpv_control.open(url[0]);
-    proc.execCommand(function(stdout) {
-        console.log("Process finished!"); 
-    });
+    mpv_control.open(url[0], function(stdout) {
+        //console.log("INFO: Task executed successfully"); 
+    })
 }
 
 function add_playlist_return(data) {
@@ -54,7 +53,6 @@ function queque_return(socket, url, con) {
                         send(socket, 'queque', obj[current_index].thumbnail);
                         queque_return('', true);
                     }
-                    console.log("Process finished!"); 
                 });
             });
         });
@@ -67,7 +65,7 @@ function queque_return(socket, url, con) {
 }
 
 function unknown_return(error) {
-    console.log("unrecognizable msg type: %s", error);
+    console.log("WARNING: Unrecognizable msg type: %s", error);
 }
 
 function error_event(socket) {
@@ -116,6 +114,7 @@ function message_event(socket) {
 
 function listen() {
     server.on('connection', function connection(socket) {
+        console.log("INFO: A new device has connected to server");
         error_event(socket);
         message_event(socket);
     });

@@ -1,7 +1,9 @@
 let socket = new WebSocket("ws://localhost:8080")
 
+var isPlaying = false;
+
 socket.onopen = function(e) {
-    //console.log("[open] Connection established");
+    console.log("[open] Connection established");
 };
 
 var mode = 'search';
@@ -55,6 +57,7 @@ function card_func(thumbnail, title, creator, url) {
     const image_preview = document.querySelector('[img]');
     image_preview.src = thumbnail;
     document.getElementById('myicon').className = "fa fa-pause"; 
+    isPlaying = true;
     current_video = [thumbnail, title, creator, url];
     if (url != null) {
         switch (mode) {
@@ -72,11 +75,13 @@ function card_func(thumbnail, title, creator, url) {
 
 function toggle_state() {
     const toggle_button = document.getElementById('myicon');
-    if (toggle_button.className == "fa fa-play") { 
-        toggle_button.className = "fa fa-pause";
+    if (isPlaying == true) { 
+        isPlaying = false;
+        toggle_button.className = "fa fa-play";
         sendMsg('pause', [true]);
     } else {
-        toggle_button.className = "fa fa-play";
+        isPlaying = true;
+        toggle_button.className = "fa fa-pause";
         sendMsg('play', [true]);
     }
 }

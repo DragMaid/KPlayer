@@ -5,14 +5,15 @@ function debug(error, stdout, stderr) {
     if (error) {
         console.log('%s', error);
         return;
+    } else {
+        console.log("INFO: Task executed successfully");
     }
-    console.log('stdout: %s', stdout);
-    console.log('stderr: %s', stderr);
 }
 
 function open(link, callback) {
     const reset = "pkill mpv";
     const command = "mpv --no-video --ytdl-format=140 --input-ipc-server=" + ipc_path + " " + link;
+    console.log("INFO: Opening new selected song");
     exec(reset, (error, stdout, stderr) => {
         exec(command, (error, stdout, stderr) => {
             debug(error, stdout, stderr);
