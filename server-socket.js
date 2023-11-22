@@ -25,16 +25,46 @@ function search_return(socket, data) {
 }
 
 function open_return(socket, url) {
-    mpv_control.open(url[0]);
+    var proc = new mpv_control.open(url[0]);
+    proc.execCommand(function(stdout) {
+        console.log("Process finished!"); 
+    });
 }
 
-async function add_playlist_return(data) {
-    await json_process.add_playlist_item(data);
+function add_playlist_return(data) {
+     json_process.add_json_item(data, "playlist");
+}
+
+function add_queque_return(data) {
+     json_process.add_json_item(data, "queque");
 }
 
 function download_return() {}
 
 function playlist_return() {}
+
+var current_index = 0;
+function queque_return(socket, url, con) {
+    function temp_play() {
+        json_process.get_item_url('playlist', current_index, function(URL) {
+            mpv_control.open(URL, function(stdout) {
+                json_process.get_item('playlist', function(obj) {
+                    if (current_index < obj.length-1) {
+                        current_index = current_index + 1;
+                        send(socket, 'queque', obj[current_index].thumbnail);
+                        queque_return('', true);
+                    }
+                    console.log("Process finished!"); 
+                });
+            });
+        });
+    }
+    if (con == false) { json_process.find_item_index('playlist', url, function(index) {
+        current_index = index;
+        temp_play();
+    })} else { temp_play(); }
+
+}
 
 function unknown_return(error) {
     console.log("unrecognizable msg type: %s", error);
@@ -54,16 +84,22 @@ function message_event(socket) {
                 search_return(socket, content_value);
                 break;
             case 'open':
-                //open_return(socket, content_value);
+                open_return(socket, content_value);
                 break;
             case 'add_playlist':
                 add_playlist_return(content_value);
+                break;
+            case 'add_queque':
+                add_queque_return(content_value);
                 break;
             case 'download':
                 download_return();
                 break;
             case 'playlist':
                 playlist_return();
+                break;
+            case 'queque':
+                queque_return(socket, content_value[0], false);
                 break;
             case 'play':
                 mpv_control.play();

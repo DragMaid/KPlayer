@@ -10,15 +10,22 @@ function debug(error, stdout, stderr) {
     console.log('stderr: %s', stderr);
 }
 
-function open(link) {
+function open(link, callback) {
     const reset = "pkill mpv";
     const command = "mpv --no-video --ytdl-format=140 --input-ipc-server=" + ipc_path + " " + link;
     exec(reset, (error, stdout, stderr) => {
-        debug(error, stdout, stderr);
+        exec(command, (error, stdout, stderr) => {
+            debug(error, stdout, stderr);
+            callback(stdout);
+        })
     })
-    exec(command, (error, stdout, stderr) => {
-        debug(error, stdout, stderr);
-    })
+}
+
+function play_queque(start) {
+}
+
+var queque_index = 0;
+function open_queque(link, index) {
 }
 
 function get_time_pos() {
