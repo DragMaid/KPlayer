@@ -56,6 +56,7 @@ var current_video = [];
 function card_func(thumbnail, title, creator, url) {
     const image_preview = document.querySelector('[img]');
     image_preview.src = thumbnail;
+    console.log(title);
     document.getElementById('myicon').className = "fa fa-pause"; 
     isPlaying = true;
     current_video = [thumbnail, title, creator, url];
@@ -92,11 +93,7 @@ function add_playlist() {
     }
 }
 
-function clear_list() {
-    //while (videosList.firstChild) { videosList.remove(videosList.firstChild); }
-    videosList.innerHTML = '';
-}
-
+function clear_list() { videosList.innerHTML = ''; }
 
 function nthIndex(str, pat, n) {
     var L = str.length,
@@ -109,8 +106,7 @@ function nthIndex(str, pat, n) {
 }
 const pageURL = String(document.URL);
 const mainURL = pageURL.substring(0, nthIndex(pageURL, '/', 3));
-const quequeJSON = mainURL + '/storage' + '/queque.json';
-const playlistJSON = mainURL + '/storage' + '/playlist.json';
+const playlistJSON = mainURL + '/storage';
 
 function load_queque() {
     clear_list();
