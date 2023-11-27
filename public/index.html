@@ -16,7 +16,7 @@
 
 <body>
     <div class="top-navbar">
-        <div class="more-button" onclick="sidebar_open()">
+        <div class="more-button" onclick="open_side_bar()">
             <i class="fa fa-bars"></i>
         </div>
         <div class="search-bar-container">
@@ -27,7 +27,6 @@
                 <i class="fa fa-search"></i>
             </div>
         </div>
-        <!--<div class="top-title">KPLAYER</div>-->
     </div>
 
     <div class="video-area">
@@ -44,36 +43,52 @@
                     <i class="fa fa-step-forward"></i>
                 </div>
             </div>
-            <div class="download-button">
-                <i class="fa fa-download"></i>
-            </div>
-            <div class="add-playlist-button" onclick="add_playlist()"> 
-                <i class="fa fa-plus"></i>
-            </div>
         </div>
     </div>
-
+    
     <div class="videos-container">
         <div class="videos-wrapper">
             <div class="videos-list" videos-list></div>
         </div>
     </div>
 
+    <div class="add-button" onclick="open_bottom_panel()"> 
+        <i class="fa fa-plus"></i>
+    </div>
+
     <!--side-bar-->
-    <div class="side-bar" id="side-bar" side-bar>
-        <div class="side-bar-btn"><i class="fa fa-search"></i>SEARCH</div>
-        <div class="side-bar-btn"><i class="fa fa-book"></i>PLAYLIST</div>
-        <div class="side-bar-btn" onclick="load_queque()"><i class="fa fa-list"></i>QUEQUE</div>
-        <div class="side-bar-btn"><i class="fa fa-download"></i>DOWNLOAD</div>
-        <div class="side-bar-btn"><i class="fa fa-search"></i>SEARCH</div>
-        <div class="side-bar-btn" onclick="sidebar_close()"><i class="fa fa-times"></i>CLOSE</div>
+    <div class="side-bar-overlay" id="side-bar-overlay", side-bar-overlay>
+        <div class="side-bar" id="side-bar" side-bar>
+            <div class="side-bar-btn"><i class="fa fa-search"></i>SEARCH</div>
+            <div class="side-bar-btn"><i class="fa fa-book"></i>PLAYLIST</div>
+            <div class="side-bar-btn" onclick="load_queque()"><i class="fa fa-list"></i>QUEQUE</div>
+            <div class="side-bar-btn"><i class="fa fa-download"></i>DOWNLOAD</div>
+            <div class="side-bar-btn"><i class="fa fa-search"></i>SEARCH</div>
+            <div class="side-bar-btn" onclick="sidebar_close()"><i class="fa fa-times"></i>CLOSE</div>
+        </div>
     </div>
 
 
     <!--bottom-panel-->
-    <div class="bottom-panel">
-        <div class="add-playlist-button"></div>
-        <div class="add-queque-button"></div>
+    <div class="bottom-panel-overlay" id="bottom-overlay" bottom-panel-overlay>
+        <div class="bottom-panel" bottom-panel>
+            <div class="add-playlist-button" onclick="add_playlist()">
+                <i class="fa fa-plus"></i>
+                ADD TO PLAYLIST
+            </div>
+            <div class="add-queque-button" onclick="add_queque()">
+                <i class="fa fa-plus"></i>
+                ADD TO QUEQUE</div>
+            <div class="add-download-button" onclick="add_download()">
+                <i class="fa fa-download"></i>
+                ADD TO DOWNLOAD</div>
+        </div>
+    </div>
+
+
+    <!--loading-screen-->
+    <div class="loading-overlay">
+        <div class="loading-gif"></div>
     </div>
 
     <template video-card-template>
@@ -87,7 +102,6 @@
             </div>
         </div>
     </template>
-
 </body>
 
 <script src="./scripts/client-socket.js"></script>
