@@ -15,7 +15,6 @@ socket.onopen = function(e) {
 };
 
 socket.onmessage = function(event) {
-    console.log(event.data);
     const processed_data = JSON.parse(event.data);
     const key_value = processed_data[0];
     switch (key_value) {
@@ -24,8 +23,10 @@ socket.onmessage = function(event) {
             add_card(info[0], info[1], info[2], info[3]);
             break;
         case 'queque':
-            const image_preview = document.querySelector('[img]');
-            image_preview.src = processed_data[1];
+            change_preview_image(processed_data[1]);
+            break;
+        case 'playlist':
+            change_preview_image(processed_data[1]);
             break;
         default:
             console.log("unrecognizable msg type: (%s) %s", key_value, processed_data[1]);
@@ -54,7 +55,6 @@ function search() {
     var input = document.querySelector('[bar-field]').value;
     if (input.length > 0) {
         clear_list(); 
-        change_mode('queque');
         sendMsg('search', [input]);
     }
 }
@@ -83,11 +83,18 @@ function card_func(thumbnail, title, creator, url) {
                 break;
             case 'download':
                 break;
+            default:
+                console.log("WARNING: mode not recognized");
         }
     }
 }
 
 function change_mode(value) { mode = value; }
+function load_search() {
+    clear_list();
+    change_mode("search");
+    open_side_bar();
+}
 
 function set_video(thumbnail, title, creator, url) {
     current_video = [thumbnail, title, creator, url];

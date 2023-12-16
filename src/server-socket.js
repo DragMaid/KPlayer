@@ -43,23 +43,23 @@ function download_return() {
 
 function playlist_return(socket, playlist, url, continued, reselect) {
     function temp_play() {
-        json_process.get_item_url('queque', current_index, function(URL) {
+        json_process.get_playlist_item_url(current_playlist, current_index, function(URL) {
             mpv_control.open(URL, function(stdout) {
                 if (reselect == false) {
-                    json_process.get_item('queque', function(obj) {
+                    json_process.get_playlist_item(current_playlist, function(obj) {
                         if (current_index < obj.length-1) {
                             current_index = current_index + 1;
-                            send(socket, "queque", obj[current_index].thumbnail);
-                            queque_return(socket, '', true, false);
+                            send(socket, "playlist", obj[current_index].thumbnail);
+                            playlist_return(socket, current_playlist, '', true, false);
                         }
                     });
                 } else { 
-                    queque_return(socket, '', false, false);
+                    playlist_return(socket, current_playlist, '', false, false);
                 }
             });
         });
     }
-    if (continued == false) { json_process.find_item_index('queque', url, function(index) {
+    if (continued == false) { json_process.find_playlist_index(current_playlist, url, function(index) {
         current_index = index;
         temp_play();
     })} else { temp_play(); }
@@ -114,6 +114,7 @@ function message_event(socket) {
                 search_return(socket, content_value);
                 break;
             case 'open':
+                console.log('h1');
                 open_return(socket, content_value);
                 break;
             case 'add_playlist':
@@ -126,10 +127,10 @@ function message_event(socket) {
                 download_return();
                 break;
             case 'playlist_select':
-                playlist_select_return();
+                playlist_select_return(content_value[0]);
                 break;
             case 'playlist':
-                playlist_return();
+                playlist_return(socket, current_playlist, content_value[0], false, false);
                 break;
             case 'queque':
                 queque_return(socket, content_value[0], false, false);

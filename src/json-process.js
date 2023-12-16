@@ -76,6 +76,48 @@ function get_item_url(type, index, callback) {
     })
 } 
 
+function get_playlist_item_url(playlist, index, callback) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            try { callback(obj['playlist'][playlist][index].url); }
+            catch(err) { console.log(err); }
+        })
+    })
+} 
+
+function find_playlist_index(playlist, url, callback) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            obj['playlist'][playlist].forEach( (dict, index) => { 
+                if (dict.url == url) {
+                    callback(index); 
+                    return ;
+                }
+            })
+        })
+    })
+}
+
+function get_playlist_item(playlist, callback) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            callback(obj['playlist'][playlist]);
+        })
+    })
+}
+
 function get_item(type, callback) {
     fetch(playlistJSON) 
     .then( (response) => { 
@@ -93,4 +135,7 @@ module.exports = {
     get_item_url: get_item_url,
     get_item: get_item,
     find_item_index: find_item_index,
+    get_playlist_item_url: get_playlist_item_url,
+    get_playlist_item: get_playlist_item,
+    find_playlist_index: find_playlist_index,
 }
