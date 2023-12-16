@@ -38,30 +38,31 @@ function add_queque_return(data) {
      json_process.add_json_item(data, "queque");
 }
 
-function download_return() {}
+function download_return() {
+}
 
 function playlist_return() {}
 
 var current_index = 0;
-function queque_return(socket, url, con, reselect) {
+function queque_return(socket, url, continued, reselect) {
     function temp_play() {
-        json_process.get_item_url('playlist', current_index, function(URL) {
+        json_process.get_item_url('queque', current_index, function(URL) {
             mpv_control.open(URL, function(stdout) {
                 if (reselect == false) {
-                    json_process.get_item('playlist', function(obj) {
+                    json_process.get_item('queque', function(obj) {
                         if (current_index < obj.length-1) {
                             current_index = current_index + 1;
-                            send(socket, 'queque', obj[current_index].thumbnail);
-                            queque_return('', true, false);
+                            send(socket, "queque", obj[current_index].thumbnail);
+                            queque_return(socket, '', true, false);
                         }
                     });
                 } else { 
-                    queque_return('', false, false);
+                    queque_return(socket, '', false, false);
                 }
             });
         });
     }
-    if (con == false) { json_process.find_item_index('playlist', url, function(index) {
+    if (continued == false) { json_process.find_item_index('queque', url, function(index) {
         current_index = index;
         temp_play();
     })} else { temp_play(); }
@@ -101,7 +102,7 @@ function message_event(socket) {
                 playlist_return();
                 break;
             case 'queque':
-                queque_return(socket, content_value[0], false, true);
+                queque_return(socket, content_value[0], false, false);
                 break;
             case 'play':
                 mpv_control.play();

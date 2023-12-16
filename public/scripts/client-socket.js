@@ -1,4 +1,5 @@
-var socket = new WebSocket("ws://localhost:8080")
+const socket = new WebSocket("ws://localhost:8080");
+
 
 var isPlaying = false;
 var mode = 'search';
@@ -20,14 +21,14 @@ socket.onmessage = function(event) {
     switch (key_value) {
         case 'create':
             const info = processed_data[1];
-            addCard(info[0], info[1], info[2], info[3]);
+            add_card(info[0], info[1], info[2], info[3]);
             break;
         case 'queque':
             const image_preview = document.querySelector('[img]');
             image_preview.src = processed_data[1];
-            
+            break;
         default:
-            console.log("unrecognizable msg type: %s", key_value[0]);
+            console.log("unrecognizable msg type: (%s) %s", key_value, processed_data[1]);
             break;
     }
 };
@@ -79,7 +80,7 @@ function card_func(thumbnail, title, creator, url) {
     }
 }
 
-function change_mode(mode) { mode = mode; }
+function change_mode(value) { mode = value; }
 
 function set_video(thumbnail, title, creator, url) {
     current_video = [thumbnail, title, creator, url];
@@ -87,22 +88,26 @@ function set_video(thumbnail, title, creator, url) {
 
 function toggle_state() {
     play_button_toggle(isPlaying);
-    if (isPlaying) { sendMsg('pause', [true]); }
-    else { sendMsg('play', [true]); }
+    if (current_video.length > 0) {
+        if (isPlaying) { sendMsg('pause', [true]); }
+        else { sendMsg('play', [true]); }
+    }
     isPlaying = !(isPlaying);
 }
 
 function add_playlist() {
     if (current_video.length > 0) { sendMsg('add_playlist', current_video); }
+    close_bottom_panel();
 }
 
 function add_queque() {
     if (current_video.length > 0) { sendMsg('add_queque', current_video); }
-
+    close_bottom_panel();
 }
 
 function add_download() {
     if (current_video.length > 0) { sendMsg('add_download', current_video); }
+    close_bottom_panel();
 }
 
 function clear_list() { videosList.innerHTML = ''; }
@@ -122,7 +127,9 @@ function load_queque() {
         var json = raw.json(); 
         json.then( (res) => {
             var json = res;
-            json['playlist'].forEach( (dict, index) => { add_card(dict.thumbnail, dict.title, dict.creator, dict.url); });
+            if (json['queque'].length > 0) {
+                json['queque'].forEach( (dict, index) => { add_card(dict.thumbnail, dict.title, dict.creator, dict.url); });
+            }
         })
     })
     open_side_bar();
