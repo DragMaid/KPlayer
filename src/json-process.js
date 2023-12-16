@@ -38,6 +38,38 @@ function add_json_item(data, type) {
                         console.log("ERROR: Failed to add item: ", error);
                         return;
                     } else {
+                        console.log("INFO: Added new item to queque!");
+                    }
+                });
+            } else { console.log('INFO: Item already existed!');  }
+        })
+    })
+}
+
+function add_dict_json_item(data, playlist) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            var exist = false;
+            obj['playlist'][playlist].forEach( (dict, index) => { 
+                if (dict.url == data[3]) { exist = true; }
+            });
+            if (exist == false) {
+                obj[type].push({
+                    "thumbnail": data[0],
+                    "title": data[1],
+                    "creator": data[2],
+                    "url": data[3]
+                });
+                var newJSON = JSON.stringify(obj);
+                writeFile(playlistPATH, newJSON, (error) => {
+                    if (error) { 
+                        console.log("ERROR: Failed to add item: ", error);
+                        return;
+                    } else {
                         console.log("INFO: Added new item to playlist!");
                     }
                 });
@@ -138,4 +170,5 @@ module.exports = {
     get_playlist_item_url: get_playlist_item_url,
     get_playlist_item: get_playlist_item,
     find_playlist_index: find_playlist_index,
+    add_dict_json_item: add_dict_json_item,
 }

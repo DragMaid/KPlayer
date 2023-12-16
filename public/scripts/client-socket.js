@@ -81,6 +81,8 @@ function card_func(thumbnail, title, creator, url) {
             case 'playlist':
                 sendMsg('playlist', [url]);
                 break;
+            case 'add-playlist':
+                break;
             case 'download':
                 break;
             default:
@@ -110,7 +112,12 @@ function toggle_state() {
 }
 
 function add_playlist() {
-    if (current_video.length > 0) { sendMsg('add_playlist', current_video); }
+    //if (current_video.length > 0) { sendMsg('add_playlist', current_video); }
+    if (current_video.length > 0) {
+        load_playlist();
+        add_card(playlist_thumbnail, "CREATE NEW", "insert name", "");
+        change_mode("add-playlist");
+    }
     close_bottom_panel();
 }
 
@@ -146,11 +153,11 @@ function load_queque() {
             }
         })
     })
-    open_side_bar();
+    close_side_bar();
 }
 
+var playlist_thumbnail = "https://www.kindpng.com/picc/m/106-1068121_transparent-music-icon-png-icon-music-png-png.png";
 function load_playlist() {
-    let thumbnail = "https://www.kindpng.com/picc/m/106-1068121_transparent-music-icon-png-icon-music-png-png.png";
     clear_list();
     change_mode('playlist_select');
     fetch(playlistJSON) 
@@ -160,11 +167,11 @@ function load_playlist() {
         json.then( (res) => {
             var json = res;
             for (const [key, value] of Object.entries(json['playlist'])) {
-                add_card(thumbnail, key, value.length, '');
+                add_card(playlist_thumbnail, key, value.length, '');
             }
         })
     })
-    open_side_bar();
+    close_side_bar();
 }
 
 function load_playlist_videos() {
