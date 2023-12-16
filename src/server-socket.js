@@ -41,7 +41,29 @@ function add_queque_return(data) {
 function download_return() {
 }
 
-function playlist_return() {}
+function playlist_return(socket, playlist, url, continued, reselect) {
+    function temp_play() {
+        json_process.get_item_url('queque', current_index, function(URL) {
+            mpv_control.open(URL, function(stdout) {
+                if (reselect == false) {
+                    json_process.get_item('queque', function(obj) {
+                        if (current_index < obj.length-1) {
+                            current_index = current_index + 1;
+                            send(socket, "queque", obj[current_index].thumbnail);
+                            queque_return(socket, '', true, false);
+                        }
+                    });
+                } else { 
+                    queque_return(socket, '', false, false);
+                }
+            });
+        });
+    }
+    if (continued == false) { json_process.find_item_index('queque', url, function(index) {
+        current_index = index;
+        temp_play();
+    })} else { temp_play(); }
+}
 
 var current_index = 0;
 function queque_return(socket, url, continued, reselect) {
@@ -67,6 +89,11 @@ function queque_return(socket, url, continued, reselect) {
         temp_play();
     })} else { temp_play(); }
 
+}
+
+var current_playlist = null;
+function playlist_select_return(playlist) {
+    current_playlist = playlist;
 }
 
 function unknown_return(error) {
@@ -97,6 +124,9 @@ function message_event(socket) {
                 break;
             case 'download':
                 download_return();
+                break;
+            case 'playlist_select':
+                playlist_select_return();
                 break;
             case 'playlist':
                 playlist_return();

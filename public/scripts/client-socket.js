@@ -59,6 +59,7 @@ function search() {
     }
 }
 
+var current_playlist = null;
 function card_func(thumbnail, title, creator, url) {
     isPlaying = true;
     change_preview_image(thumbnail);
@@ -71,8 +72,14 @@ function card_func(thumbnail, title, creator, url) {
             case 'queque':
                 sendMsg('queque', [url]);
                 break;
+            case 'playlist_select':
+                current_playlist = title;
+                load_playlist_videos();
+                change_mode('playlist');
+                sendMsg('playlist_select', [title]);
+                break;
             case 'playlist':
-                sendMSg('playlist', [url]);
+                sendMsg('playlist', [url]);
                 break;
             case 'download':
                 break;
@@ -133,4 +140,36 @@ function load_queque() {
         })
     })
     open_side_bar();
+}
+
+function load_playlist() {
+    let thumbnail = "https://www.kindpng.com/picc/m/106-1068121_transparent-music-icon-png-icon-music-png-png.png";
+    clear_list();
+    change_mode('playlist_select');
+    fetch(playlistJSON) 
+    .then( (res) => { 
+        var raw = res; 
+        var json = raw.json(); 
+        json.then( (res) => {
+            var json = res;
+            for (const [key, value] of Object.entries(json['playlist'])) {
+                add_card(thumbnail, key, value.length, '');
+            }
+        })
+    })
+    open_side_bar();
+}
+
+function load_playlist_videos() {
+    clear_list();
+    change_mode('playlist');
+    fetch(playlistJSON) 
+    .then( (res) => { 
+        var raw = res; 
+        var json = raw.json(); 
+        json.then( (res) => {
+            var json = res;
+            json['playlist'][current_playlist].forEach( (dict, index) => { add_card(dict.thumbnail, dict.title, dict.creator, dict.url); });
+        })
+    })
 }
