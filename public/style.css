@@ -209,6 +209,27 @@
     padding-left: 2vw;
 }
 
+.remove-region {
+    top: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    right: 0;
+    height: 100%;
+    width: 20%;
+}
+
+.remove-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    height: 50%;
+    top: 25%;
+    background-color: red;
+    border-radius: 25px;
+}
+
 .side-bar-overlay {
     position: absolute;
     top: 0;

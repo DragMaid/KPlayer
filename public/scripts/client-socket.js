@@ -107,6 +107,26 @@ function set_video(thumbnail, title, creator, url) {
     current_video = [thumbnail, title, creator, url];
 }
 
+function delete_queque_video() {
+}
+
+function delete_playlist() {
+}
+
+function remove_button_func(url, title, id) {
+    if (url == '') {
+        delete_playlist(title);
+        sendMsg('delete_playlist', [title]);
+    } else if (mode == 'playlist') {
+        delete_queque_video(url);
+        sendMsg('delete_playlist_video', [url]);
+    } else {
+        delete_queque_video(url);
+        sendMsg('delete_queque_video', [url]);
+    }
+    remove_card(id);
+}
+
 function toggle_state() {
     play_button_toggle(isPlaying);
     if (current_video.length > 0) {

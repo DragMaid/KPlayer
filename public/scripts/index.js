@@ -75,16 +75,27 @@ function change_preview_image(thumbnail) {
     document.getElementById('myicon').className = "fa fa-pause"; 
 }
 
+function remove_card(id) {
+    var elem = document.getElementById(id);
+    return elem.parentNode.removeChild(elem);
+}
+
 function add_card(link, title, creator, url) {
     const card = videoCardTemplate.content.cloneNode(true).children[0];
     const thumbnail = card.querySelector('[thumbnail]');
+    const infoHolder = card.querySelector('[info-holder]');
     const videoTitle = card.querySelector('[video-title]');
     const videoCreator = card.querySelector('[video-creator]');
+    const removeButton = card.querySelector('[remove-button]');
+    const id = title;
 
     thumbnail.src = link;
     videoTitle.textContent = title;
     videoCreator.textContent = creator;
+    card.id = id;
 
     videosList.append(card);
-    card.addEventListener("click", function(){card_func(link, title, creator, url);});
+    thumbnail.addEventListener("click", function(){card_func(link, title, creator, url);});
+    infoHolder.addEventListener("click", function(){card_func(link, title, creator, url);});
+    removeButton.addEventListener("click", function(){remove_button_func(url, title, id);});
 }

@@ -8,7 +8,7 @@ const mpv = new mpvAPI(
     },
     [
         "--ytdl-format=140",
-        "--log-file=./mpv.log",
+        //"--log-file=./mpv.log",
         "--ytdl-raw-options=force-ipv4=",
     ]
 );
