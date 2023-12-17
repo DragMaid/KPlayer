@@ -62,14 +62,16 @@ function search() {
 var current_playlist = null;
 function card_func(thumbnail, title, creator, url) {
     isPlaying = true;
-    change_preview_image(thumbnail);
-    set_video(thumbnail, title, creator, url);
     if (url != null) {
         switch (mode) {
             case 'search':
+                change_preview_image(thumbnail);
+                set_video(thumbnail, title, creator, url);
                 sendMsg('open', [url]);
                 break;
             case 'queque':
+                change_preview_image(thumbnail);
+                set_video(thumbnail, title, creator, url);
                 sendMsg('queque', [url]);
                 break;
             case 'playlist_select':
@@ -79,9 +81,12 @@ function card_func(thumbnail, title, creator, url) {
                 sendMsg('playlist_select', [title]);
                 break;
             case 'playlist':
+                change_preview_image(thumbnail);
+                set_video(thumbnail, title, creator, url);
                 sendMsg('playlist', [url]);
                 break;
-            case 'add-playlist':
+            case 'playlist_add':
+                add_to_playlist(title);
                 break;
             case 'download':
                 break;
@@ -112,13 +117,24 @@ function toggle_state() {
 }
 
 function add_playlist() {
-    //if (current_video.length > 0) { sendMsg('add_playlist', current_video); }
-    if (current_video.length > 0) {
-        load_playlist();
-        add_card(playlist_thumbnail, "CREATE NEW", "insert name", "");
-        change_mode("add-playlist");
-    }
     close_bottom_panel();
+    open_playlist_panel();
+}
+
+function add_existing_playlist() {
+    load_playlist();
+    change_mode('playlist_add');
+    close_playlist_panel();
+}
+
+const name_input = document.querySelector("[text-field]");
+function create_new_playlist() {
+    if (current_video.length > 0) { add_to_playlist(name_input.value); }
+    close_name_panel();
+}
+
+function add_to_playlist(playlist) {
+    if (current_video.length > 0) { sendMsg('add_playlist', [playlist, current_video]); }
 }
 
 function add_queque() {

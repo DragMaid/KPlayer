@@ -67,8 +67,27 @@
         </div>
     </div>
 
+
+    <div class="playlist-select-overlay" playlist-select-overlay id="playlist-select-overlay">
+        <div class="playlist-select-panel" playlist-select-panel>
+            <div class="playlist-exist-button" onclick="add_existing_playlist()">
+                <h3>EXIST</h3>
+            </div>
+            <div class="playlist-create-button" onclick="open_name_panel()">
+                <h3>CREATE</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="name-input-overlay" name-input-overlay id="name-input-overlay">
+        <div class="name-input-panel" name-input-panel>
+            <div class="text-field"><input text-field type="text"></div>
+            <div class="submit-button" submit-button onclick="create_new_playlist()"><h3>SUBMIT</h3></div>
+        </div>
+    </div>
+
     <!--bottom-panel-->
-    <div class="bottom-panel-overlay" id="bottom-overlay" bottom-panel-overlay>
+    <div class="bottom-panel-overlay" bottom-panel-overlay id="bottom-overlay" bottom-panel-overlay>
         <div class="bottom-panel" bottom-panel>
             <div class="add-playlist-button" onclick="add_playlist()">
                 <i class="fa fa-plus"></i>

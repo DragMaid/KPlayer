@@ -11,14 +11,20 @@ function debug(error, stdout, stderr) {
 }
 
 function open(link, callback) {
-    const reset = "pkill mpv";
-    const command = "mpv --no-video --ytdl-format=140 --ytdl-raw-options=force-ipv4= --input-ipc-server=" + ipc_path + " " + link;
+    //const reset = "pkill mpv";
+    //const command = "mpv --no-video --ytdl-format=140 --log-file=./mpv.log --ytdl-raw-options=force-ipv4= --input-ipc-server=" + ipc_path + " " + link;
+    const command = "./src/runmpv.sh " + link;
     console.log("INFO: Opening new selected song");
-    exec(reset, (error, stdout, stderr) => {
-        exec(command, (error, stdout, stderr) => {
-            debug(error, stdout, stderr);
-            callback(stdout);
-        })
+    //exec(reset, (error, stdout, stderr) => {
+        //exec(command, (error, stdout, stderr) => {
+            //debug(error, stdout, stderr);
+            //callback(stdout);
+        //})
+    //})
+    exec(command, (error, stdout, stderr) => {
+        debug(error, stdout, stderr);
+        console.log(stdout);
+        callback(stdout);
     })
 }
 

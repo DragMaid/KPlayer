@@ -30,8 +30,8 @@ function open_return(socket, url) {
     })
 }
 
-function add_playlist_return(data) {
-     json_process.add_json_item(data, "playlist");
+function add_playlist_return(playlist, video) {
+     json_process.add_dict_json_item(playlist, video);
 }
 
 function add_queque_return(data) {
@@ -75,7 +75,7 @@ function queque_return(socket, url, continued, reselect) {
                         if (current_index < obj.length-1) {
                             current_index = current_index + 1;
                             send(socket, "queque", obj[current_index].thumbnail);
-                            queque_return(socket, '', true, false);
+                            //queque_return(socket, '', true, false);
                         }
                     });
                 } else { 
@@ -109,16 +109,16 @@ function message_event(socket) {
         const processed_data = JSON.parse(data);
         const key_value = processed_data[0];
         const content_value = processed_data[1];
+        var q = 0;
         switch (key_value) {
             case 'search':
                 search_return(socket, content_value);
                 break;
             case 'open':
-                console.log('h1');
                 open_return(socket, content_value);
                 break;
             case 'add_playlist':
-                add_playlist_return(content_value);
+                add_playlist_return(content_value[0], content_value[1]);
                 break;
             case 'add_queque':
                 add_queque_return(content_value);

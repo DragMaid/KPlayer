@@ -46,7 +46,7 @@ function add_json_item(data, type) {
     })
 }
 
-function add_dict_json_item(data, playlist) {
+function add_dict_json_item(playlist, data) {
     fetch(playlistJSON) 
     .then( (response) => { 
         var res = response; 
@@ -54,11 +54,15 @@ function add_dict_json_item(data, playlist) {
         json.then( (res) => {
             var obj = res;
             var exist = false;
-            obj['playlist'][playlist].forEach( (dict, index) => { 
-                if (dict.url == data[3]) { exist = true; }
-            });
+            if (playlist in obj['playlist']) {
+                obj['playlist'][playlist].forEach( (dict, index) => { 
+                    if (dict.url == data[3]) { exist = true; }
+                });
+            } else {
+                obj['playlist'][playlist] = [];
+            }
             if (exist == false) {
-                obj[type].push({
+                obj['playlist'][playlist].push({
                     "thumbnail": data[0],
                     "title": data[1],
                     "creator": data[2],

@@ -1,9 +1,13 @@
 const sidebar = document.querySelector("[side-bar]");
 const sidebar_overlay = document.querySelector("[side-bar-overlay]");
 const panel = document.querySelector("[bottom-panel]");
-const videoCardTemplate = document.querySelector('[video-card-template]');
+const videoCardTemplate = document.querySelector("[video-card-template]");
 const videosList = document.querySelector('[videos-list]');
 const panel_overlay = document.querySelector("[bottom-panel-overlay]");
+const playlist_select_panel = document.querySelector("[playlist-select-panel]");
+const playlist_select_overlay = document.querySelector("[playlist-select-overlay]");
+const name_input_panel = document.querySelector("[name-input-panel]");
+const name_input_overlay = document.querySelector("[name-input-overlay]");
 
 function open_side_bar() {
     sidebar.classList.toggle("active");
@@ -25,6 +29,27 @@ function close_bottom_panel() {
     panel_overlay.classList.remove("active");
 }
 
+function open_playlist_panel() {
+    playlist_select_panel.classList.toggle("active");
+    playlist_select_overlay.classList.toggle("active");
+}
+
+function close_playlist_panel() {
+    playlist_select_panel.classList.remove("active");
+    playlist_select_overlay.classList.remove("active");
+}
+
+function open_name_panel() {
+    close_playlist_panel();
+    name_input_panel.classList.toggle("active");
+    name_input_overlay.classList.toggle("active");
+}
+
+function close_name_panel() {
+    name_input_panel.classList.remove("active");
+    name_input_overlay.classList.remove("active");
+}
+
 function open_loading_screen() {
 }
 
@@ -34,6 +59,8 @@ function close_loading_screen() {
 document.onclick = function(e) {
     if(e.target.id === "bottom-overlay") { close_bottom_panel() }
     if(e.target.id === "side-bar-overlay") { close_side_bar() }
+    if(e.target.id === "playlist-select-overlay") { close_playlist_panel() }
+    if(e.target.id === "name-input-overlay") { close_name_panel() }
 }
 
 function  play_button_toggle(isPlaying) {

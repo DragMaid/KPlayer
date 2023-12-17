@@ -1,0 +1,499 @@
+[   0.000][d][global] user path: './mpv.log' -> './mpv.log'
+[   0.007][v][cplayer] mpv 0.36.0 Copyright © 2000-2023 mpv/MPlayer/mplayer2 projects
+[   0.007][v][cplayer]  built on Sun Jul 23 05:49:29 2023
+[   0.007][v][cplayer] libplacebo version: v5.264.1
+[   0.007][v][cplayer] FFmpeg version: n6.0
+[   0.007][v][cplayer] FFmpeg library versions:
+[   0.007][v][cplayer]    libavutil       58.2.100
+[   0.007][v][cplayer]    libavcodec      60.3.100
+[   0.007][v][cplayer]    libavformat     60.3.100
+[   0.007][v][cplayer]    libswscale      7.1.100
+[   0.007][v][cplayer]    libavfilter     9.3.100
+[   0.007][v][cplayer]    libswresample   4.10.100
+[   0.007][v][cplayer] 
+[   0.007][v][cplayer] Configuration: -Db_lto=true -Db_pie=true -Dpython.bytecompile=1 -Dlibmpv=true -Dcaca=disabled -Dcdda=enabled -Ddvbin=enabled -Ddvdnav=enabled -Dlibarchive=enabled -Dprefix=/usr -Dlibexecdir=lib -Dsbindir=bin -Dauto_features=auto -Dbuildtype=plain -Dwrap_mode=nodownload
+[   0.007][v][cplayer] List of enabled features: alsa av-channel-layout avif_muxer build-date cdda cplugins cuda-hwaccel cuda-interop dmabuf-interop-gl dmabuf-interop-pl dmabuf-wayland drm drm-is-kms dvbin dvdnav egl egl-drm egl-helpers egl-x11 ffmpeg ffnvcodec gbm gl gl-wayland glibc-thread-name glob glob-posix gpl iconv jack javascript jpeg jpegxl lcms2 libarchive libass libavdevice libbluray libdl libm libplacebo libplacebo-next librt linux-fstatfs luajit manpage-build memfd_create noexecstack pipewire posix posix_shm pulse rubberband rubberband-3 shaderc stdatomic threads uchardet vaapi vaapi-drm vaapi-egl vaapi-libplacebo vaapi-wayland vaapi-x-egl vaapi-x11 vdpau vector vk_khr_display vt.h vulkan wayland wayland_protocols_1_27 wayland_protocols_1_31 wayland_protocols_1_32 x11 xv zimg zimg-st428 zlib
+[   0.007][v][cplayer] Command line options: '--no-video' '--ytdl-format=140' '--log-file=./mpv.log' '--ytdl-raw-options=force-ipv4=' '--input-ipc-server=/tmp/mpvsocket' 'https://youtube.com/watch?v=MfSE956GpUE'
+[   0.007][v][cplayer] mpv 0.36.0 Copyright © 2000-2023 mpv/MPlayer/mplayer2 projects
+[   0.007][v][cplayer]  built on Sun Jul 23 05:49:29 2023
+[   0.007][v][cplayer] libplacebo version: v5.264.1
+[   0.007][v][cplayer] FFmpeg version: n6.0
+[   0.007][v][cplayer] FFmpeg library versions:
+[   0.007][v][cplayer]    libavutil       58.2.100
+[   0.007][v][cplayer]    libavcodec      60.3.100
+[   0.007][v][cplayer]    libavformat     60.3.100
+[   0.007][v][cplayer]    libswscale      7.1.100
+[   0.007][v][cplayer]    libavfilter     9.3.100
+[   0.007][v][cplayer]    libswresample   4.10.100
+[   0.007][v][cplayer] 
+[   0.007][v][cplayer] Configuration: -Db_lto=true -Db_pie=true -Dpython.bytecompile=1 -Dlibmpv=true -Dcaca=disabled -Dcdda=enabled -Ddvbin=enabled -Ddvdnav=enabled -Dlibarchive=enabled -Dprefix=/usr -Dlibexecdir=lib -Dsbindir=bin -Dauto_features=auto -Dbuildtype=plain -Dwrap_mode=nodownload
+[   0.007][v][cplayer] List of enabled features: alsa av-channel-layout avif_muxer build-date cdda cplugins cuda-hwaccel cuda-interop dmabuf-interop-gl dmabuf-interop-pl dmabuf-wayland drm drm-is-kms dvbin dvdnav egl egl-drm egl-helpers egl-x11 ffmpeg ffnvcodec gbm gl gl-wayland glibc-thread-name glob glob-posix gpl iconv jack javascript jpeg jpegxl lcms2 libarchive libass libavdevice libbluray libdl libm libplacebo libplacebo-next librt linux-fstatfs luajit manpage-build memfd_create noexecstack pipewire posix posix_shm pulse rubberband rubberband-3 shaderc stdatomic threads uchardet vaapi vaapi-drm vaapi-egl vaapi-libplacebo vaapi-wayland vaapi-x-egl vaapi-x11 vdpau vector vk_khr_display vt.h vulkan wayland wayland_protocols_1_27 wayland_protocols_1_31 wayland_protocols_1_32 x11 xv zimg zimg-st428 zlib
+[   0.007][d][global] home path: '' -> '/home/jakekato/.config/mpv'
+[   0.007][d][global] user path: '~~home/' -> '/home/jakekato/.config/mpv'
+[   0.007][d][global] user path: '~~old_home/' -> '/home/jakekato/.mpv'
+[   0.007][d][global] config path: 'encoding-profiles.conf' -/-> '/home/jakekato/.config/mpv/encoding-profiles.conf'
+[   0.007][d][global] config path: 'encoding-profiles.conf' -/-> '/home/jakekato/.mpv/encoding-profiles.conf'
+[   0.007][d][global] config path: 'encoding-profiles.conf' -> '/etc/mpv/encoding-profiles.conf'
+[   0.007][v][cplayer] Reading config file /etc/mpv/encoding-profiles.conf
+[   0.007][v][ifo_dvdnav] Opening /etc/mpv/encoding-profiles.conf
+[   0.007][v][bdmv/bluray] Opening /etc/mpv/encoding-profiles.conf
+[   0.008][v][file] Opening /etc/mpv/encoding-profiles.conf
+[   0.008][d][file] resize stream to 131072 bytes, drop 0 bytes
+[   0.008][d][file] Stream opened successfully.
+[   0.010][v][cplayer] Applying profile 'default'...
+[   0.010][d][global] config path: 'mpv.conf' -/-> '/home/jakekato/.config/mpv/mpv.conf'
+[   0.010][d][global] config path: 'config' -/-> '/home/jakekato/.config/mpv/config'
+[   0.010][d][global] config path: 'mpv.conf' -/-> '/home/jakekato/.mpv/mpv.conf'
+[   0.010][d][global] config path: 'config' -/-> '/home/jakekato/.mpv/config'
+[   0.010][d][global] config path: 'mpv.conf' -/-> '/etc/mpv/mpv.conf'
+[   0.011][d][global] config path: 'config' -/-> '/etc/mpv/config'
+[   0.011][v][cplayer] Setting option 'video' = 'no' (flags = 8)
+[   0.011][v][cplayer] Setting option 'ytdl-format' = '140' (flags = 8)
+[   0.011][v][cplayer] Setting option 'log-file' = './mpv.log' (flags = 8)
+[   0.011][v][cplayer] Setting option 'ytdl-raw-options' = 'force-ipv4=' (flags = 8)
+[   0.011][v][cplayer] Setting option 'input-ipc-server' = '/tmp/mpvsocket' (flags = 8)
+[   0.015][d][global] config path: 'input.conf' -/-> '/home/jakekato/.config/mpv/input.conf'
+[   0.015][d][global] config path: 'input.conf' -/-> '/home/jakekato/.mpv/input.conf'
+[   0.015][d][global] config path: 'input.conf' -/-> '/etc/mpv/input.conf'
+[   0.015][d][global] user path: './mpv.log' -> './mpv.log'
+[   0.015][d][osc] Loading lua script @osc.lua...
+[   0.015][d][ytdl_hook] Loading lua script @ytdl_hook.lua...
+[   0.015][d][stats] Loading lua script @stats.lua...
+[   0.016][d][console] Loading lua script @console.lua...
+[   0.016][d][auto_profiles] Loading lua script @auto_profiles.lua...
+[   0.016][d][global] user path: '/tmp/mpvsocket' -> '/tmp/mpvsocket'
+[   0.017][d][global] config path: 'scripts' -/-> '/home/jakekato/.config/mpv/scripts'
+[   0.017][d][global] config path: 'scripts' -/-> '/home/jakekato/.mpv/scripts'
+[   0.017][d][global] config path: 'scripts' -/-> '/etc/mpv/scripts'
+[   0.017][v][cplayer] Waiting for scripts...
+[   0.017][d][osc] loading mp.defaults
+[   0.017][v][ipc] Starting IPC master
+[   0.017][v][ipc] Listening to IPC socket.
+[   0.019][d][ytdl_hook] loading mp.defaults
+[   0.020][d][console] loading mp.defaults
+[   0.021][d][stats] loading mp.defaults
+[   0.021][d][auto_profiles] loading mp.defaults
+[   0.021][d][ytdl_hook] loading @ytdl_hook.lua
+[   0.023][d][auto_profiles] loading @auto_profiles.lua
+[   0.024][d][ytdl_hook] reading options for ytdl_hook 
+[   0.024][d][global] config path: 'script-opts/ytdl_hook.conf' -/-> '/home/jakekato/.config/mpv/script-opts/ytdl_hook.conf'
+[   0.024][d][global] config path: 'script-opts/ytdl_hook.conf' -/-> '/home/jakekato/.mpv/script-opts/ytdl_hook.conf'
+[   0.024][d][global] config path: 'script-opts/ytdl_hook.conf' -/-> '/etc/mpv/script-opts/ytdl_hook.conf'
+[   0.024][d][ytdl_hook] script-opts/ytdl_hook.conf not found. 
+[   0.024][d][global] config path: 'lua-settings/ytdl_hook.conf' -/-> '/home/jakekato/.config/mpv/lua-settings/ytdl_hook.conf'
+[   0.024][d][global] config path: 'lua-settings/ytdl_hook.conf' -/-> '/home/jakekato/.mpv/lua-settings/ytdl_hook.conf'
+[   0.024][d][global] config path: 'lua-settings/ytdl_hook.conf' -/-> '/etc/mpv/lua-settings/ytdl_hook.conf'
+[   0.024][d][ytdl_hook] lua-settings/ytdl_hook.conf not found. 
+[   0.024][d][osc] loading @osc.lua
+[   0.025][d][console] loading @console.lua
+[   0.029][d][stats] loading @stats.lua
+[   0.033][d][console] reading options for console 
+[   0.033][d][global] config path: 'script-opts/console.conf' -/-> '/home/jakekato/.config/mpv/script-opts/console.conf'
+[   0.033][d][global] config path: 'script-opts/console.conf' -/-> '/home/jakekato/.mpv/script-opts/console.conf'
+[   0.033][d][global] config path: 'script-opts/console.conf' -/-> '/etc/mpv/script-opts/console.conf'
+[   0.033][d][console] script-opts/console.conf not found. 
+[   0.033][d][global] config path: 'lua-settings/console.conf' -/-> '/home/jakekato/.config/mpv/lua-settings/console.conf'
+[   0.033][d][global] config path: 'lua-settings/console.conf' -/-> '/home/jakekato/.mpv/lua-settings/console.conf'
+[   0.033][d][global] config path: 'lua-settings/console.conf' -/-> '/etc/mpv/lua-settings/console.conf'
+[   0.033][d][console] lua-settings/console.conf not found. 
+[   0.034][d][global] config path: 'fonts' -/-> '/home/jakekato/.config/mpv/fonts'
+[   0.034][d][global] config path: 'fonts' -/-> '/home/jakekato/.mpv/fonts'
+[   0.034][d][global] config path: 'fonts' -/-> '/etc/mpv/fonts'
+[   0.034][d][osd/libass] ASS library version: 0x1701000 (runtime 0x1701000)
+[   0.034][v][osd/libass] libass API version: 0x1701000
+[   0.034][v][osd/libass] libass source: commit: 0.17.1-0-ge8ad72accd3a84268275a9385beb701c9284e5b3-dirty
+[   0.036][d][osc] reading options for osc 
+[   0.036][d][global] config path: 'script-opts/osc.conf' -/-> '/home/jakekato/.config/mpv/script-opts/osc.conf'
+[   0.036][v][osd/libass] Shaper: FriBidi 1.0.12 (SIMPLE) HarfBuzz-ng 8.1.1 (COMPLEX)
+[   0.036][d][global] config path: 'subfont.ttf' -/-> '/home/jakekato/.config/mpv/subfont.ttf'
+[   0.036][d][global] config path: 'subfont.ttf' -/-> '/home/jakekato/.mpv/subfont.ttf'
+[   0.036][d][global] config path: 'subfont.ttf' -/-> '/etc/mpv/subfont.ttf'
+[   0.036][d][global] config path: 'fonts.conf' -/-> '/home/jakekato/.config/mpv/fonts.conf'
+[   0.036][d][global] config path: 'fonts.conf' -/-> '/home/jakekato/.mpv/fonts.conf'
+[   0.036][d][global] config path: 'fonts.conf' -/-> '/etc/mpv/fonts.conf'
+[   0.036][v][osd/libass] Setting up fonts...
+[   0.037][d][stats] reading options for stats 
+[   0.037][d][global] config path: 'script-opts/stats.conf' -/-> '/home/jakekato/.config/mpv/script-opts/stats.conf'
+[   0.037][d][global] config path: 'script-opts/stats.conf' -/-> '/home/jakekato/.mpv/script-opts/stats.conf'
+[   0.037][d][global] config path: 'script-opts/stats.conf' -/-> '/etc/mpv/script-opts/stats.conf'
+[   0.037][d][stats] script-opts/stats.conf not found. 
+[   0.037][d][global] config path: 'lua-settings/stats.conf' -/-> '/home/jakekato/.config/mpv/lua-settings/stats.conf'
+[   0.037][d][global] config path: 'lua-settings/stats.conf' -/-> '/home/jakekato/.mpv/lua-settings/stats.conf'
+[   0.037][d][global] config path: 'lua-settings/stats.conf' -/-> '/etc/mpv/lua-settings/stats.conf'
+[   0.037][d][stats] lua-settings/stats.conf not found. 
+[   0.037][d][global] config path: 'script-opts/osc.conf' -/-> '/home/jakekato/.mpv/script-opts/osc.conf'
+[   0.037][d][global] config path: 'script-opts/osc.conf' -/-> '/etc/mpv/script-opts/osc.conf'
+[   0.037][d][osc] script-opts/osc.conf not found. 
+[   0.037][d][global] config path: 'lua-settings/osc.conf' -/-> '/home/jakekato/.config/mpv/lua-settings/osc.conf'
+[   0.037][d][global] config path: 'lua-settings/osc.conf' -/-> '/home/jakekato/.mpv/lua-settings/osc.conf'
+[   0.037][d][global] config path: 'lua-settings/osc.conf' -/-> '/etc/mpv/lua-settings/osc.conf'
+[   0.037][d][osc] lua-settings/osc.conf not found. 
+[   0.054][v][osd/libass] Using font provider fontconfig
+[   0.054][v][osd/libass] Done.
+[   0.057][d][cplayer] Run command: define-section, flags=64, args=[name="input_console", contents="", flags="default"]
+[   0.057][d][cplayer] Run command: enable-section, flags=64, args=[name="input_console", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.057][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_console", contents="", flags="force"]
+[   0.057][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_console", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.057][d][auto_profiles] Exiting...
+[   0.058][d][cplayer] Run command: define-section, flags=64, args=[name="input_stats", contents="", flags="default"]
+[   0.059][d][cplayer] Run command: enable-section, flags=64, args=[name="input_stats", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.059][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_stats", contents="", flags="force"]
+[   0.059][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_stats", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.059][d][cplayer] Run command: define-section, flags=64, args=[name="showhide", contents="mouse_move script-binding osc/__keybinding1\nmouse_leave script-binding osc/__keybinding2\n", flags="force"]
+[   0.059][d][cplayer] Run command: define-section, flags=64, args=[name="showhide_wc", contents="mouse_move script-binding osc/__keybinding3\nmouse_leave script-binding osc/__keybinding4\n", flags="force"]
+[   0.060][d][cplayer] Run command: enable-section, flags=64, args=[name="showhide", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.060][d][cplayer] Run command: enable-section, flags=64, args=[name="showhide_wc", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.060][d][cplayer] Run command: define-section, flags=64, args=[name="input", contents="mbtn_left script-binding osc/__keybinding5\nshift+mbtn_left script-binding osc/__keybinding6\nmbtn_right script-binding osc/__keybinding7\nmbtn_mid script-binding osc/__keybinding8\nwheel_up script-binding osc/__keybinding9\nwheel_down script-binding osc/__keybinding10\nmbtn_left_dbl ignore\nshift+mbtn_left_dbl ignore\nmbtn_right_dbl ignore\n", flags="force"]
+[   0.060][d][cplayer] Run command: enable-section, flags=64, args=[name="input", flags=""]
+[   0.060][d][cplayer] Run command: define-section, flags=64, args=[name="window-controls", contents="mbtn_left script-binding osc/__keybinding11\n", flags="force"]
+[   0.060][d][cplayer] Run command: enable-section, flags=64, args=[name="window-controls", flags=""]
+[   0.060][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-visibility=auto"]
+[   0.060][v][cplayer] Set property: shared-script-properties -> 1
+[   0.060][v][cplayer] Set property: user-data/osc/visibility="auto" -> 1
+[   0.060][d][cplayer] Run command: disable-section, flags=64, args=[name="input"]
+[   0.060][d][cplayer] Run command: disable-section, flags=64, args=[name="window-controls"]
+[   0.060][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[   0.060][v][cplayer] Set property: shared-script-properties -> 1
+[   0.060][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[   0.061][v][cplayer] Done loading scripts.
+[   0.061][d][global] state path: 'watch_later' -> '/home/jakekato/.local/state/mpv/watch_later'
+[   0.061][d][global] state path: 'watch_later' -> '/home/jakekato/.local/state/mpv/watch_later'
+[   0.061][v][cplayer] Running hook: ytdl_hook/on_load
+[   0.061][v][ytdl_hook] ytdl:// hook 
+[   0.061][v][ytdl_hook] not a ytdl:// url 
+[   0.061][v][ffmpeg] Opening https://youtube.com/watch?v=MfSE956GpUE
+[   0.062][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[   0.062][v][cplayer] Set property: shared-script-properties -> 1
+[   0.062][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[   0.062][d][osc] osc_init 
+[   0.063][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[   0.063][v][cplayer] Set property: shared-script-properties -> 1
+[   0.063][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[   0.064][d][global] config path: 'fonts' -/-> '/home/jakekato/.config/mpv/fonts'
+[   0.064][d][global] config path: 'fonts' -/-> '/home/jakekato/.mpv/fonts'
+[   0.064][d][global] config path: 'fonts' -/-> '/etc/mpv/fonts'
+[   0.064][d][osd/libass] ASS library version: 0x1701000 (runtime 0x1701000)
+[   0.064][v][osd/libass] libass API version: 0x1701000
+[   0.064][v][osd/libass] libass source: commit: 0.17.1-0-ge8ad72accd3a84268275a9385beb701c9284e5b3-dirty
+[   0.064][v][osd/libass] Shaper: FriBidi 1.0.12 (SIMPLE) HarfBuzz-ng 8.1.1 (COMPLEX)
+[   0.064][d][global] config path: 'subfont.ttf' -/-> '/home/jakekato/.config/mpv/subfont.ttf'
+[   0.064][d][global] config path: 'subfont.ttf' -/-> '/home/jakekato/.mpv/subfont.ttf'
+[   0.064][d][global] config path: 'subfont.ttf' -/-> '/etc/mpv/subfont.ttf'
+[   0.064][d][global] config path: 'fonts.conf' -/-> '/home/jakekato/.config/mpv/fonts.conf'
+[   0.064][d][global] config path: 'fonts.conf' -/-> '/home/jakekato/.mpv/fonts.conf'
+[   0.064][d][global] config path: 'fonts.conf' -/-> '/etc/mpv/fonts.conf'
+[   0.065][v][osd/libass] Setting up fonts...
+[   0.077][v][osd/libass] Using font provider fontconfig
+[   0.077][v][osd/libass] Done.
+[   0.079][d][cplayer] Run command: define-section, flags=64, args=[name="input_osc", contents="", flags="default"]
+[   0.079][d][cplayer] Run command: enable-section, flags=64, args=[name="input_osc", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.079][d][cplayer] Run command: define-section, flags=64, args=[name="input_forced_osc", contents="", flags="force"]
+[   0.079][d][cplayer] Run command: enable-section, flags=64, args=[name="input_forced_osc", flags="allow-hide-cursor+allow-vo-dragging"]
+[   0.086][d][ffmpeg] tcp: Starting connection attempt to 2404:6800:4003:c00::5d port 443
+[   0.387][d][ffmpeg] tcp: Starting connection attempt to 74.125.200.91 port 443
+[   0.470][d][ffmpeg] tcp: Successfully connected to 74.125.200.91 port 443
+[   0.787][d][ffmpeg] tcp: Starting connection attempt to 2404:6800:4003:c01::5b port 443
+[   1.088][d][ffmpeg] tcp: Starting connection attempt to 64.233.170.136 port 443
+[   1.189][d][ffmpeg] tcp: Successfully connected to 64.233.170.136 port 443
+[   1.419][d][ffmpeg] resize stream to 131072 bytes, drop 0 bytes
+[   1.419][v][ffmpeg] Mime-type: 'text/html; charset=utf-8'
+[   1.419][d][ffmpeg] Stream opened successfully.
+[   1.419][v][demux] Trying demuxers for level=normal.
+[   1.419][d][demux] Trying demuxer: disc (force-level: normal)
+[   1.419][d][demux] Trying demuxer: edl (force-level: normal)
+[   1.419][d][demux] Trying demuxer: cue (force-level: normal)
+[   1.419][d][demux] Trying demuxer: rawaudio (force-level: normal)
+[   1.419][d][demux] Trying demuxer: rawvideo (force-level: normal)
+[   1.419][d][demux] Trying demuxer: mkv (force-level: normal)
+[   1.419][d][demux] Trying demuxer: libarchive (force-level: normal)
+[   1.425][d][demux] Trying demuxer: lavf (force-level: normal)
+[   1.664][d][ffmpeg] resize stream to 262144 bytes, drop 0 bytes
+[   1.737][d][ffmpeg] resize stream to 524288 bytes, drop 0 bytes
+[   1.909][d][ffmpeg] resize stream to 1048576 bytes, drop 0 bytes
+[   1.981][d][ffmpeg] resize stream to 2097152 bytes, drop 0 bytes
+[   2.035][v][lavf] No format found, try lowering probescore or forcing the format.
+[   2.035][d][demux] Trying demuxer: mf (force-level: normal)
+[   2.035][d][demux] Trying demuxer: playlist (force-level: normal)
+[   2.035][d][demux] Trying demuxer: null (force-level: normal)
+[   2.035][v][demux] Trying demuxers for level=unsafe.
+[   2.035][d][demux] Trying demuxer: disc (force-level: unsafe)
+[   2.035][d][demux] Trying demuxer: edl (force-level: unsafe)
+[   2.035][d][demux] Trying demuxer: cue (force-level: unsafe)
+[   2.035][d][demux] Trying demuxer: rawaudio (force-level: unsafe)
+[   2.035][d][demux] Trying demuxer: rawvideo (force-level: unsafe)
+[   2.035][d][demux] Trying demuxer: mkv (force-level: unsafe)
+[   2.035][d][demux] Trying demuxer: libarchive (force-level: unsafe)
+[   2.036][d][demux] Trying demuxer: lavf (force-level: unsafe)
+[   2.111][d][ffmpeg] resize stream to 1048576 bytes, drop 0 bytes
+[   2.166][d][ffmpeg] resize stream to 2097152 bytes, drop 0 bytes
+[   2.221][v][lavf] No format found, try lowering probescore or forcing the format.
+[   2.221][d][demux] Trying demuxer: mf (force-level: unsafe)
+[   2.221][d][demux] Trying demuxer: playlist (force-level: unsafe)
+[   2.221][d][demux] Trying demuxer: null (force-level: unsafe)
+[   2.221][d][ffmpeg] AVIOContext: Statistics: 852575 bytes read, 0 seeks
+[   2.221][v][cplayer] Opening failed or was aborted: https://youtube.com/watch?v=MfSE956GpUE
+[   2.221][v][cplayer] Running hook: ytdl_hook/on_load_fail
+[   2.222][v][ytdl_hook] full hook 
+[   2.222][d][global] config path: 'yt-dlp' -/-> '/home/jakekato/.config/mpv/yt-dlp'
+[   2.222][d][global] config path: 'yt-dlp' -/-> '/home/jakekato/.mpv/yt-dlp'
+[   2.222][d][global] config path: 'yt-dlp' -/-> '/etc/mpv/yt-dlp'
+[   2.222][v][ytdl_hook] No youtube-dl found with path yt-dlp in config directories 
+[   2.222][d][ytdl_hook] Running: yt-dlp --no-warnings -J --flat-playlist --sub-format ass/srt/best --format 140 --force-ipv4 --all-subs --no-playlist -- https://youtube.com/watch?v=MfSE956GpUE 
+[   2.222][d][cplayer] Run command: subprocess, flags=64, args=[args="yt-dlp,--no-warnings,-J,--flat-playlist,--sub-format,ass/srt/best,--format,140,--force-ipv4,--all-subs,--no-playlist,--,https://youtube.com/watch?v=MfSE956GpUE", playback_only="yes", capture_size="67108864", capture_stdout="yes", capture_stderr="yes", detach="no", env="", stdin_data="", passthrough_stdin="no"]
+[   4.729][v][ytdl_hook] Found youtube-dl with path yt-dlp in PATH 
+[   4.732][v][ytdl_hook] youtube-dl succeeded! 
+[   4.732][d][ytdl_hook] ytdl parsing took 0.008816 seconds 
+[   4.732][d][ytdl_hook] No fragments to join into EDL 
+[   4.733][v][cplayer] Set property: file-local-options/user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36" -> 1
+[   4.733][v][ytdl_hook] format selection: youtube-dl (separate) 
+[   4.733][d][ytdl_hook] streamurl: https://rr2---sn-n5pbvoj5caxu8-nboy.googlevideo.com/videoplayback?expire=1702778236&ei=HAF-ZZ_AItuK9fwPpeynMA&ip=27.3.135.163&id=o-AL9eBHZWZMR-TnvL-Y-OS7XawKaBHzNhwkZ6yhI8Vsnh&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=Jq&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboy%2Csn-i3b7kns6&ms=au%2Crdu&mv=m&mvi=2&pl=21&gcr=vn&initcwndbps=1002500&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=2002938&dur=123.715&lmt=1698234661543238&mt=1702756179&fvip=1&keepalive=yes&fexp=24007246&c=IOS&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgRMtGvxF0EhW_DNXUWulpeqYfjlt1Lo-Ek8Ay1U8HNi8CICjDIGzNhkLjwp9Lrfj8k0wcsYMWFEtheinEKuB1W7EV&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJmNHqAzZV1801G4zbi2RvA_aS0yMTpNFaB6AFx5Neo6AiEAupMdJPL00578pnMlpOwBD0CpKmp67zJaqaknIg70xbc%3D 
+[   4.733][v][cplayer] Set property: stream-open-filename="https://rr2---sn-n5pbvoj5caxu8-nboy.googlevideo.com/videoplayback?expire=1702778236&ei=HAF-ZZ_AItuK9fwPpeynMA&ip=27.3.135.163&id=o-AL9eBHZWZMR-TnvL-Y-OS7XawKaBHzNhwkZ6yhI8Vsnh&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=Jq&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboy%2Csn-i3b7kns6&ms=au%2Crdu&mv=m&mvi=2&pl=21&gcr=vn&initcwndbps=1002500&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=2002938&dur=123.715&lmt=1698234661543238&mt=1702756179&fvip=1&keepalive=yes&fexp=24007246&c=IOS&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgRMtGvxF0EhW_DNXUWulpeqYfjlt1Lo-Ek8Ay1U8HNi8CICjDIGzNhkLjwp9Lrfj8k0wcsYMWFEtheinEKuB1W7EV&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJmNHqAzZV1801G4zbi2RvA_aS0yMTpNFaB6AFx5Neo6AiEAupMdJPL00578pnMlpOwBD0CpKmp67zJaqaknIg70xbc%3D" -> 1
+[   4.733][v][cplayer] Set property: file-local-options/force-media-title="The Apothecary Diaries OP/Opening  - Hana ni Natte" -> 1
+[   4.733][v][cplayer] Set property: file-local-options/stream-lavf-o={} -> 1
+[   4.733][d][ytdl_hook] script running time: 0.00985 seconds 
+[   4.734][v][ffmpeg] Opening https://rr2---sn-n5pbvoj5caxu8-nboy.googlevideo.com/videoplayback?expire=1702778236&ei=HAF-ZZ_AItuK9fwPpeynMA&ip=27.3.135.163&id=o-AL9eBHZWZMR-TnvL-Y-OS7XawKaBHzNhwkZ6yhI8Vsnh&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=Jq&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboy%2Csn-i3b7kns6&ms=au%2Crdu&mv=m&mvi=2&pl=21&gcr=vn&initcwndbps=1002500&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=2002938&dur=123.715&lmt=1698234661543238&mt=1702756179&fvip=1&keepalive=yes&fexp=24007246&c=IOS&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgRMtGvxF0EhW_DNXUWulpeqYfjlt1Lo-Ek8Ay1U8HNi8CICjDIGzNhkLjwp9Lrfj8k0wcsYMWFEtheinEKuB1W7EV&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJmNHqAzZV1801G4zbi2RvA_aS0yMTpNFaB6AFx5Neo6AiEAupMdJPL00578pnMlpOwBD0CpKmp67zJaqaknIg70xbc%3D
+[   4.745][d][ffmpeg] tcp: Starting connection attempt to 2403:e200:16::d port 443
+[   5.046][d][ffmpeg] tcp: Starting connection attempt to 112.197.26.141 port 443
+[   5.054][d][ffmpeg] tcp: Successfully connected to 112.197.26.141 port 443
+[   5.107][d][ffmpeg] resize stream to 131072 bytes, drop 0 bytes
+[   5.107][v][ffmpeg] Mime-type: 'audio/mp4'
+[   5.107][d][ffmpeg] Stream opened successfully.
+[   5.107][v][demux] Trying demuxers for level=normal.
+[   5.107][d][demux] Trying demuxer: disc (force-level: normal)
+[   5.107][d][demux] Trying demuxer: edl (force-level: normal)
+[   5.108][d][demux] Trying demuxer: cue (force-level: normal)
+[   5.108][d][demux] Trying demuxer: rawaudio (force-level: normal)
+[   5.108][d][demux] Trying demuxer: rawvideo (force-level: normal)
+[   5.108][d][demux] Trying demuxer: mkv (force-level: normal)
+[   5.108][d][demux] Trying demuxer: libarchive (force-level: normal)
+[   5.108][d][demux] Trying demuxer: lavf (force-level: normal)
+[   5.115][v][lavf] Found 'mov,mp4,m4a,3gp,3g2,mj2' at score=100 size=2048.
+[   5.116][d][ffmpeg/demuxer] mov,mp4,m4a,3gp,3g2,mj2: advanced_editlist does not work with fragmented MP4. disabling.
+[   5.116][v][demux] Detected file format: mov,mp4,m4a,3gp,3g2,mj2 (libavformat)
+[   5.116][v][cplayer] Opening done: https://rr2---sn-n5pbvoj5caxu8-nboy.googlevideo.com/videoplayback?expire=1702778236&ei=HAF-ZZ_AItuK9fwPpeynMA&ip=27.3.135.163&id=o-AL9eBHZWZMR-TnvL-Y-OS7XawKaBHzNhwkZ6yhI8Vsnh&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=Jq&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboy%2Csn-i3b7kns6&ms=au%2Crdu&mv=m&mvi=2&pl=21&gcr=vn&initcwndbps=1002500&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=2002938&dur=123.715&lmt=1698234661543238&mt=1702756179&fvip=1&keepalive=yes&fexp=24007246&c=IOS&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cgcr%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgRMtGvxF0EhW_DNXUWulpeqYfjlt1Lo-Ek8Ay1U8HNi8CICjDIGzNhkLjwp9Lrfj8k0wcsYMWFEtheinEKuB1W7EV&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJmNHqAzZV1801G4zbi2RvA_aS0yMTpNFaB6AFx5Neo6AiEAupMdJPL00578pnMlpOwBD0CpKmp67zJaqaknIg70xbc%3D
+[   5.117][d][global] config path: 'sub' -/-> '/home/jakekato/.config/mpv/sub'
+[   5.117][d][global] config path: 'sub' -/-> '/home/jakekato/.mpv/sub'
+[   5.117][d][global] config path: 'sub' -/-> '/etc/mpv/sub'
+[   5.117][v][cplayer] Running hook: ytdl_hook/on_preloaded
+[   5.117][d][osc] osc_init 
+[   5.117][v][lavf] select track 0
+[   5.118][i][cplayer]  (+) Audio --aid=1 (*) (aac 2ch 44100Hz)
+[   5.118][v][ad] Codec list:
+[   5.118][v][ad]     aac - AAC (Advanced Audio Coding)
+[   5.118][v][ad]     aac_fixed (aac) - AAC (Advanced Audio Coding)
+[   5.118][v][ad] Opening decoder aac
+[   5.119][v][ad] Requesting 1 threads for decoding.
+[   5.123][v][ad] Selected codec: aac (AAC (Advanced Audio Coding))
+[   5.123][v][af] User filter list:
+[   5.123][v][af]   (empty)
+[   5.123][v][cplayer] Starting playback...
+[   5.123][d][lavf] stream 0: resize index to 128
+[   5.124][v][af] [in] 44100Hz stereo 2ch floatp
+[   5.124][v][af] [userspeed] 44100Hz stereo 2ch floatp
+[   5.124][v][af] [userspeed] (disabled)
+[   5.124][v][af] [convert] 44100Hz stereo 2ch floatp
+[   5.124][v][ao] Trying audio driver 'pipewire'
+[   5.124][v][ao/pipewire] requested format: 44100 Hz, stereo channels, floatp
+[   5.125][v][ao/pipewire] Headers version: 0.3.75
+[   5.125][v][ao/pipewire] Library version: 0.3.77
+[   5.126][v][ao] Trying audio driver 'pulse'
+[   5.126][v][ao/pulse] requested format: 44100 Hz, stereo channels, floatp
+[   5.127][v][ao/pulse] Library version: 16.1.0
+[   5.127][v][ao/pulse] Proto: 35
+[   5.127][v][ao/pulse] Server proto: 4294967295
+[   5.129][v][ao/pulse] Channel layouts:
+[   5.129][v][ao/pulse]  - #fl
+[   5.129][v][ao/pulse]  - #fr
+[   5.129][v][ao/pulse]  - #fc
+[   5.129][v][ao/pulse]  - #lfe
+[   5.129][v][ao/pulse]  - #bl
+[   5.129][v][ao/pulse]  - #br
+[   5.129][v][ao/pulse]  - #flc
+[   5.129][v][ao/pulse]  - #frc
+[   5.129][v][ao/pulse]  - #bc
+[   5.129][v][ao/pulse]  - #sl
+[   5.129][v][ao/pulse]  - #sr
+[   5.129][v][ao/pulse]  - #tc
+[   5.129][v][ao/pulse]  - #tfl
+[   5.129][v][ao/pulse]  - #tfc
+[   5.129][v][ao/pulse]  - #tfr
+[   5.129][v][ao/pulse]  - #tbl
+[   5.129][v][ao/pulse]  - #tbc
+[   5.130][v][ao/pulse]  - #tbr
+[   5.130][v][ao/pulse] result: stereo
+[   5.395][v][ao/pulse] device buffer: 4410 samples.
+[   5.395][v][ao/pulse] using soft-buffer of 8820 samples.
+[   5.396][i][cplayer] AO: [pulse] 44100Hz stereo 2ch float
+[   5.396][v][cplayer] AO: Description: PulseAudio audio output
+[   5.397][v][autoconvert] inserting resampler
+[   5.397][v][swresample] format change, reinitializing resampler
+[   5.397][v][swresample] 44100Hz stereo floatp -> 44100Hz stereo float
+[   5.397][v][af] [out] 44100Hz stereo 2ch float
+[   5.399][v][cplayer] audio ready
+[   5.399][v][cplayer] starting audio playback
+[   5.399][v][cplayer] playback restart complete @ 0.000000, audio=playing, video=eof
+[   5.399][v][ao/pulse] starting AO
+[   5.401][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[   5.401][v][cplayer] Set property: shared-script-properties -> 1
+[   5.402][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[   5.432][d][osc] osc_init 
+[   5.433][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[   5.433][v][cplayer] Set property: shared-script-properties -> 1
+[   5.433][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[   5.468][v][lavf] EOF reached.
+[   7.448][v][ipc_0] Client connected
+[   7.448][d][cplayer] Run command: loadfile, flags=64, args=[url="https://youtube.com/watch?v=TK4N5W22Gts", flags="replace", options=""]
+[   7.448][v][cplayer] EOF code: 3  
+[   7.448][v][ipc_0] Client disconnected
+[   7.448][d][ipc_0] Exiting...
+[   7.449][d][ad] Uninit decoder.
+[   7.449][d][cplayer] Terminating demuxers...
+[   7.456][d][ffmpeg] AVIOContext: Statistics: 2002938 bytes read, 0 seeks
+[   7.458][d][cplayer] Done terminating demuxers.
+[   7.458][v][cplayer] finished playback, success (reason 2)
+[   7.458][i][cplayer] 
+[   7.458][d][global] state path: 'watch_later' -> '/home/jakekato/.local/state/mpv/watch_later'
+[   7.458][v][cplayer] Running hook: ytdl_hook/on_load
+[   7.458][v][ytdl_hook] ytdl:// hook 
+[   7.458][v][ytdl_hook] not a ytdl:// url 
+[   7.459][v][ffmpeg] Opening https://youtube.com/watch?v=TK4N5W22Gts
+[   7.468][d][osc] osc_init 
+[   7.469][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[   7.469][v][cplayer] Set property: shared-script-properties -> 1
+[   7.469][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[   7.478][d][ffmpeg] tcp: Starting connection attempt to 2404:6800:4003:c00::88 port 443
+[   7.778][d][ffmpeg] tcp: Starting connection attempt to 74.125.200.91 port 443
+[   7.848][d][ffmpeg] tcp: Successfully connected to 74.125.200.91 port 443
+[   8.077][d][ffmpeg] tcp: Starting connection attempt to 2404:6800:4003:c01::88 port 443
+[   8.378][d][ffmpeg] tcp: Starting connection attempt to 142.251.175.91 port 443
+[   8.437][d][ffmpeg] tcp: Successfully connected to 142.251.175.91 port 443
+[   8.652][d][ffmpeg] resize stream to 131072 bytes, drop 0 bytes
+[   8.652][v][ffmpeg] Mime-type: 'text/html; charset=utf-8'
+[   8.652][d][ffmpeg] Stream opened successfully.
+[   8.652][v][demux] Trying demuxers for level=normal.
+[   8.652][d][demux] Trying demuxer: disc (force-level: normal)
+[   8.652][d][demux] Trying demuxer: edl (force-level: normal)
+[   8.652][d][demux] Trying demuxer: cue (force-level: normal)
+[   8.652][d][demux] Trying demuxer: rawaudio (force-level: normal)
+[   8.652][d][demux] Trying demuxer: rawvideo (force-level: normal)
+[   8.652][d][demux] Trying demuxer: mkv (force-level: normal)
+[   8.652][d][demux] Trying demuxer: libarchive (force-level: normal)
+[   8.654][d][demux] Trying demuxer: lavf (force-level: normal)
+[   8.845][d][ffmpeg] resize stream to 262144 bytes, drop 0 bytes
+[   8.910][d][ffmpeg] resize stream to 524288 bytes, drop 0 bytes
+[   8.991][d][ffmpeg] resize stream to 1048576 bytes, drop 0 bytes
+[   9.044][d][ffmpeg] resize stream to 2097152 bytes, drop 0 bytes
+[   9.092][v][lavf] No format found, try lowering probescore or forcing the format.
+[   9.092][d][demux] Trying demuxer: mf (force-level: normal)
+[   9.092][d][demux] Trying demuxer: playlist (force-level: normal)
+[   9.092][d][demux] Trying demuxer: null (force-level: normal)
+[   9.092][v][demux] Trying demuxers for level=unsafe.
+[   9.092][d][demux] Trying demuxer: disc (force-level: unsafe)
+[   9.092][d][demux] Trying demuxer: edl (force-level: unsafe)
+[   9.092][d][demux] Trying demuxer: cue (force-level: unsafe)
+[   9.092][d][demux] Trying demuxer: rawaudio (force-level: unsafe)
+[   9.092][d][demux] Trying demuxer: rawvideo (force-level: unsafe)
+[   9.092][d][demux] Trying demuxer: mkv (force-level: unsafe)
+[   9.092][d][demux] Trying demuxer: libarchive (force-level: unsafe)
+[   9.093][d][demux] Trying demuxer: lavf (force-level: unsafe)
+[   9.160][d][ffmpeg] resize stream to 1048576 bytes, drop 0 bytes
+[   9.207][d][ffmpeg] resize stream to 2097152 bytes, drop 0 bytes
+[   9.253][v][lavf] No format found, try lowering probescore or forcing the format.
+[   9.253][d][demux] Trying demuxer: mf (force-level: unsafe)
+[   9.253][d][demux] Trying demuxer: playlist (force-level: unsafe)
+[   9.253][d][demux] Trying demuxer: null (force-level: unsafe)
+[   9.253][d][ffmpeg] AVIOContext: Statistics: 727760 bytes read, 0 seeks
+[   9.253][v][cplayer] Opening failed or was aborted: https://youtube.com/watch?v=TK4N5W22Gts
+[   9.253][v][cplayer] Running hook: ytdl_hook/on_load_fail
+[   9.253][v][ytdl_hook] full hook 
+[   9.254][d][ytdl_hook] Running: yt-dlp --no-warnings -J --flat-playlist --sub-format ass/srt/best --format 140 --force-ipv4 --all-subs --no-playlist -- https://youtube.com/watch?v=TK4N5W22Gts 
+[   9.254][d][cplayer] Run command: subprocess, flags=64, args=[args="yt-dlp,--no-warnings,-J,--flat-playlist,--sub-format,ass/srt/best,--format,140,--force-ipv4,--all-subs,--no-playlist,--,https://youtube.com/watch?v=TK4N5W22Gts", playback_only="yes", capture_size="67108864", capture_stdout="yes", capture_stderr="yes", detach="no", env="", stdin_data="", passthrough_stdin="no"]
+[  11.517][v][ytdl_hook] youtube-dl succeeded! 
+[  11.517][d][ytdl_hook] ytdl parsing took 0.012079 seconds 
+[  11.517][d][ytdl_hook] No fragments to join into EDL 
+[  11.518][v][cplayer] Set property: file-local-options/user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" -> 1
+[  11.518][v][ytdl_hook] format selection: youtube-dl (separate) 
+[  11.518][d][ytdl_hook] streamurl: https://rr8---sn-n5pbvoj5caxu8-nboz.googlevideo.com/videoplayback?expire=1702778243&ei=IwF-ZfqIHtGy9fwPgMGVyAg&ip=27.3.135.163&id=o-ALi3ubmTLsRZYeRYzMS17ZdgVxz4UzJuiKupafHgHn5S&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=aD&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboz%2Csn-i3belnls&ms=au%2Crdu&mv=m&mvi=8&pl=21&initcwndbps=1578750&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=37956&dur=2.298&lmt=1670234287805724&mt=1702756179&fvip=4&keepalive=yes&fexp=24007246&c=IOS&txp=5311224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgFSKeY7saAhukixmLv47qiTFx_4qm5dMaVh_9zAUcDr0CIQC2UNxiPqCuKe_HtFwzJE4CpAwVshFLpUHNsalrWIXW1g%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAPUf7O-EdPWiUXSN3muXkt_4LJytKDuVLwNChcOwM4XOAiEAqgWrZoo0Mc6Sugfh0LBu732hwlkV1NOlIiJVDcHMxoI%3D 
+[  11.518][v][cplayer] Set property: stream-open-filename="https://rr8---sn-n5pbvoj5caxu8-nboz.googlevideo.com/videoplayback?expire=1702778243&ei=IwF-ZfqIHtGy9fwPgMGVyAg&ip=27.3.135.163&id=o-ALi3ubmTLsRZYeRYzMS17ZdgVxz4UzJuiKupafHgHn5S&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=aD&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboz%2Csn-i3belnls&ms=au%2Crdu&mv=m&mvi=8&pl=21&initcwndbps=1578750&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=37956&dur=2.298&lmt=1670234287805724&mt=1702756179&fvip=4&keepalive=yes&fexp=24007246&c=IOS&txp=5311224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgFSKeY7saAhukixmLv47qiTFx_4qm5dMaVh_9zAUcDr0CIQC2UNxiPqCuKe_HtFwzJE4CpAwVshFLpUHNsalrWIXW1g%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAPUf7O-EdPWiUXSN3muXkt_4LJytKDuVLwNChcOwM4XOAiEAqgWrZoo0Mc6Sugfh0LBu732hwlkV1NOlIiJVDcHMxoI%3D" -> 1
+[  11.518][v][cplayer] Set property: file-local-options/force-media-title="2 Second Video" -> 1
+[  11.518][v][cplayer] Set property: file-local-options/stream-lavf-o={} -> 1
+[  11.518][d][ytdl_hook] script running time: 0.013029 seconds 
+[  11.518][v][ffmpeg] Opening https://rr8---sn-n5pbvoj5caxu8-nboz.googlevideo.com/videoplayback?expire=1702778243&ei=IwF-ZfqIHtGy9fwPgMGVyAg&ip=27.3.135.163&id=o-ALi3ubmTLsRZYeRYzMS17ZdgVxz4UzJuiKupafHgHn5S&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=aD&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboz%2Csn-i3belnls&ms=au%2Crdu&mv=m&mvi=8&pl=21&initcwndbps=1578750&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=37956&dur=2.298&lmt=1670234287805724&mt=1702756179&fvip=4&keepalive=yes&fexp=24007246&c=IOS&txp=5311224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgFSKeY7saAhukixmLv47qiTFx_4qm5dMaVh_9zAUcDr0CIQC2UNxiPqCuKe_HtFwzJE4CpAwVshFLpUHNsalrWIXW1g%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAPUf7O-EdPWiUXSN3muXkt_4LJytKDuVLwNChcOwM4XOAiEAqgWrZoo0Mc6Sugfh0LBu732hwlkV1NOlIiJVDcHMxoI%3D
+[  11.532][d][ffmpeg] tcp: Starting connection attempt to 2403:e200:4::13 port 443
+[  11.544][d][ffmpeg] tcp: Successfully connected to 2403:e200:4::13 port 443
+[  11.591][d][ffmpeg] resize stream to 131072 bytes, drop 0 bytes
+[  11.591][v][ffmpeg] Mime-type: 'audio/mp4'
+[  11.591][d][ffmpeg] Stream opened successfully.
+[  11.591][v][demux] Trying demuxers for level=normal.
+[  11.591][d][demux] Trying demuxer: disc (force-level: normal)
+[  11.591][d][demux] Trying demuxer: edl (force-level: normal)
+[  11.592][d][demux] Trying demuxer: cue (force-level: normal)
+[  11.592][d][demux] Trying demuxer: rawaudio (force-level: normal)
+[  11.592][d][demux] Trying demuxer: rawvideo (force-level: normal)
+[  11.592][d][demux] Trying demuxer: mkv (force-level: normal)
+[  11.592][d][demux] Trying demuxer: libarchive (force-level: normal)
+[  11.593][d][demux] Trying demuxer: lavf (force-level: normal)
+[  11.596][v][lavf] Found 'mov,mp4,m4a,3gp,3g2,mj2' at score=100 size=2048.
+[  11.596][d][ffmpeg/demuxer] mov,mp4,m4a,3gp,3g2,mj2: advanced_editlist does not work with fragmented MP4. disabling.
+[  11.597][v][demux] Detected file format: mov,mp4,m4a,3gp,3g2,mj2 (libavformat)
+[  11.597][v][cplayer] Opening done: https://rr8---sn-n5pbvoj5caxu8-nboz.googlevideo.com/videoplayback?expire=1702778243&ei=IwF-ZfqIHtGy9fwPgMGVyAg&ip=27.3.135.163&id=o-ALi3ubmTLsRZYeRYzMS17ZdgVxz4UzJuiKupafHgHn5S&itag=140&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=aD&mm=31%2C29&mn=sn-n5pbvoj5caxu8-nboz%2Csn-i3belnls&ms=au%2Crdu&mv=m&mvi=8&pl=21&initcwndbps=1578750&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=37956&dur=2.298&lmt=1670234287805724&mt=1702756179&fvip=4&keepalive=yes&fexp=24007246&c=IOS&txp=5311224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgFSKeY7saAhukixmLv47qiTFx_4qm5dMaVh_9zAUcDr0CIQC2UNxiPqCuKe_HtFwzJE4CpAwVshFLpUHNsalrWIXW1g%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAPUf7O-EdPWiUXSN3muXkt_4LJytKDuVLwNChcOwM4XOAiEAqgWrZoo0Mc6Sugfh0LBu732hwlkV1NOlIiJVDcHMxoI%3D
+[  11.597][d][global] config path: 'sub' -/-> '/home/jakekato/.config/mpv/sub'
+[  11.597][d][global] config path: 'sub' -/-> '/home/jakekato/.mpv/sub'
+[  11.599][d][global] config path: 'sub' -/-> '/etc/mpv/sub'
+[  11.599][d][osc] osc_init 
+[  11.599][v][cplayer] Running hook: ytdl_hook/on_preloaded
+[  11.599][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[  11.599][v][cplayer] Set property: shared-script-properties -> 1
+[  11.599][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[  11.600][v][lavf] select track 0
+[  11.600][i][cplayer]  (+) Audio --aid=1 --alang=eng (*) (aac 2ch 44100Hz)
+[  11.600][v][ad] Codec list:
+[  11.600][v][ad]     aac - AAC (Advanced Audio Coding)
+[  11.601][v][ad]     aac_fixed (aac) - AAC (Advanced Audio Coding)
+[  11.601][v][ad] Opening decoder aac
+[  11.601][v][ad] Requesting 1 threads for decoding.
+[  11.603][v][ad] Selected codec: aac (AAC (Advanced Audio Coding))
+[  11.603][v][af] User filter list:
+[  11.603][v][af]   (empty)
+[  11.603][v][cplayer] Starting playback...
+[  11.603][d][lavf] stream 0: resize index to 128
+[  11.605][v][af] [in] 44100Hz stereo 2ch floatp
+[  11.605][v][af] [userspeed] 44100Hz stereo 2ch floatp
+[  11.605][v][af] [userspeed] (disabled)
+[  11.605][v][af] [convert] 44100Hz stereo 2ch floatp
+[  11.605][v][autoconvert] inserting resampler
+[  11.605][v][swresample] format change, reinitializing resampler
+[  11.605][v][swresample] 44100Hz stereo floatp -> 44100Hz stereo float
+[  11.605][v][af] [out] 44100Hz stereo 2ch float
+[  11.606][v][lavf] EOF reached.
+[  11.607][v][cplayer] audio ready
+[  11.607][v][cplayer] starting audio playback
+[  11.607][v][ao/pulse] starting AO
+[  11.608][v][cplayer] playback restart complete @ 0.100000, audio=playing, video=eof
+[  11.634][d][osc] osc_init 
+[  11.636][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="append", value="osc-margins=0.000000,0.000000,0.000000,0.000000"]
+[  11.636][v][cplayer] Set property: shared-script-properties -> 1
+[  11.637][v][cplayer] Set property: user-data/osc/margins={"b":0,"r":0,"t":0,"l":0} -> 1
+[  13.563][v][af] filter input EOF
+[  13.563][v][af] filter output EOF
+[  13.563][v][cplayer] audio filter EOF
+[  13.563][v][cplayer] audio draining
+[  13.563][v][cplayer] audio EOF reached
+[  13.563][v][cplayer] EOF code: 1  
+[  13.563][d][ad] Uninit decoder.
+[  13.564][d][cplayer] Terminating demuxers...
+[  13.564][d][ffmpeg] AVIOContext: Statistics: 37956 bytes read, 0 seeks
+[  13.564][d][cplayer] Done terminating demuxers.
+[  13.565][v][cplayer] finished playback, success (reason 0)
+[  13.565][i][cplayer] 
+[  13.565][i][cplayer] Exiting... (End of file)
+[  13.566][d][ytdl_hook] Exiting...
+[  13.566][d][cplayer] Run command: change-list, flags=64, args=[name="shared-script-properties", operation="remove", value="osc-margins"]
+[  13.566][v][cplayer] Set property: shared-script-properties -> 1
+[  13.566][d][cplayer] Run command: del, flags=64, args=[name="user-data/osc"]
+[  13.566][d][console] Exiting...
+[  13.567][d][stats] Exiting...
+[  13.567][d][osc] Exiting...
+[  13.574][v][cplayer] draining left over audio
+[  13.764][v][ao/pulse] audio end or underrun
+[  13.884][v][ao/pulse] audio end or underrun

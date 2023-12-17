@@ -250,10 +250,9 @@
 .side-bar-btn {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 94%;
     height: 45px;
     padding-left: 5%;
-    border: 2px solid black;
 }
 
 .side-bar-btn i {
@@ -335,4 +334,98 @@
 
 .add-download-button i {
     margin-right: 5%;
+}
+
+.playlist-select-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 210px;
+    background-color: var(--color-distinct);
+}
+
+.playlist-exist-button {
+    aspect-ratio: 1/1;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.playlist-create-button {
+    aspect-ratio: 1/1;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.playlist-select-overlay {
+    display: none;
+}
+
+.playlist-select-overlay.active {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.name-input-overlay {
+    display: none;
+}
+
+.name-input-overlay.active {
+    position: absolute;
+    display: block;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+}
+
+.name-input-panel {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    top: calc(50% - 125px);
+    width: 100%;
+    height: 200px;
+}
+
+.text-field {
+    height: 20%;
+    width: 70%;
+    background-color: blue;
+}
+
+.text-field input {
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+}
+
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    border-radius: 25px;
+    width: 40%;
+    background-color: var(--color-distinct);
 }
