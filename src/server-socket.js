@@ -1,11 +1,12 @@
 const ws_module = require('ws');
-const server = new ws_module.WebSocketServer({
-    port: 8080
-});
+const server = new ws_module.WebSocketServer({ port: 8080 });
 const search_range = 12;
 const yt_search = require('./yt-search.js');
-const mpv_control = require('./mpv-controller.js');
+const mpv_control = require('./mpv-controller-api.js');
 const json_process = require('./json-process.js');
+var current_index = -1;
+var current_playlist = null;
+mpv_control.init();
 
 function processVideo(data) {
     return [data.thumbnail, data.title, data.author.name, data.url];
@@ -26,7 +27,7 @@ function search_return(socket, data) {
 
 function open_return(socket, url) {
     mpv_control.open(url[0], function(stdout) {
-        //console.log("INFO: Task executed successfully"); 
+        //console.log("INFO: "); 
     })
 }
 
@@ -41,59 +42,74 @@ function add_queque_return(data) {
 function download_return() {
 }
 
-function playlist_return(socket, playlist, url, continued, reselect) {
-    function temp_play() {
-        json_process.get_playlist_item_url(current_playlist, current_index, function(URL) {
-            mpv_control.open(URL, function(stdout) {
-                if (reselect == false) {
-                    json_process.get_playlist_item(current_playlist, function(obj) {
-                        if (current_index < obj.length-1) {
-                            current_index = current_index + 1;
-                            send(socket, "playlist", obj[current_index].thumbnail);
-                            playlist_return(socket, current_playlist, '', true, false);
-                        }
-                    });
-                } else { 
-                    playlist_return(socket, current_playlist, '', false, false);
+function play_playlist_via_index(socket) {
+    json_process.get_playlist_item_url(current_playlist, current_index, function(URL) {
+        mpv_control.open(URL, function() {
+            json_process.get_playlist_item(current_playlist, function(obj) {
+                if (current_index < obj.length-1) {
+                    current_index = current_index + 1;
+                    send(socket, "playlist", obj[current_index].thumbnail);
+                    playlist_return(socket, null, true);
                 }
             });
         });
-    }
-    if (continued == false) { json_process.find_playlist_index(current_playlist, url, function(index) {
-        current_index = index;
-        temp_play();
-    })} else { temp_play(); }
+    });
 }
 
-var current_index = 0;
-function queque_return(socket, url, continued, reselect) {
-    function temp_play() {
-        json_process.get_item_url('queque', current_index, function(URL) {
-            mpv_control.open(URL, function(stdout) {
-                if (reselect == false) {
-                    json_process.get_item('queque', function(obj) {
-                        if (current_index < obj.length-1) {
-                            current_index = current_index + 1;
-                            send(socket, "queque", obj[current_index].thumbnail);
-                            //queque_return(socket, '', true, false);
-                        }
-                    });
-                } else { 
-                    queque_return(socket, '', false, false);
+function playlist_return(socket, url, continued) {
+    if (!continued) {
+        json_process.find_playlist_index(current_playlist, url, function(index) {
+            if (index != current_index) {
+                current_index = index;
+                play_playlist_via_index(socket);
+            }
+        });
+    } else {
+        play_playlist_via_index(socket);
+    }
+}
+
+function play_queque_via_index(socket) {
+    json_process.get_item_url('queque', current_index, function(URL) {
+        mpv_control.open(URL, function() {
+            json_process.get_item('queque', function(obj) {
+                if (current_index < obj.length-1) {
+                    current_index = current_index + 1;
+                    send(socket, "queque", obj[current_index].thumbnail);
+                    queque_return(socket, null, true);
                 }
             });
         });
-    }
-    if (continued == false) { json_process.find_item_index('queque', url, function(index) {
-        current_index = index;
-        temp_play();
-    })} else { temp_play(); }
-
+    });
 }
 
-var current_playlist = null;
+function queque_return(socket, url, continued) {
+    if (!continued) {
+        json_process.find_item_index('queque', url, function(index) {
+            if (index != current_index) {
+                current_index = index;
+                play_queque_via_index(socket);
+            }
+        });
+    } else {
+        play_queque_via_index(socket);
+    }
+}
+
 function playlist_select_return(playlist) {
     current_playlist = playlist;
+}
+
+function delete_playlist_return(playlist) {
+    json_process.delete_playlist(playlist);
+}
+
+function delete_queque_video_return(url) {
+    json_process.delete_queque_video(url);
+}
+
+function delete_playlist_video_return(playlist, url) {
+    json_process.delete_playlist_video(playlist, url);
 }
 
 function unknown_return(error) {
@@ -126,14 +142,22 @@ function message_event(socket) {
             case 'download':
                 download_return();
                 break;
+            case 'delete_playlist':
+                delete_playlist_return(content_value[0]);
+                break;
+            case 'delete_queque_video':
+                delete_queque_video_return(content_value[0]);
+                break;
+            case 'delete_playlist_video':
+                delete_playlist_video_return(current_playlist, content_value[0]);
             case 'playlist_select':
                 playlist_select_return(content_value[0]);
                 break;
             case 'playlist':
-                playlist_return(socket, current_playlist, content_value[0], false, false);
+                playlist_return(socket, content_value[0], false);
                 break;
             case 'queque':
-                queque_return(socket, content_value[0], false, false);
+                queque_return(socket, content_value[0], false);
                 break;
             case 'play':
                 mpv_control.play();

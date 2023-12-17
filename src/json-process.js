@@ -82,6 +82,81 @@ function add_dict_json_item(playlist, data) {
     })
 }
 
+function delete_playlist_video(playlist, url) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            obj['playlist'][playlist].forEach( (dict, index) => { 
+                if (dict.url == url) {
+                    obj['playlist'][playlist].splice(index, 1);
+                    var newJSON = JSON.stringify(obj);
+                    writeFile(playlistPATH, newJSON, (error) => {
+                        if (error) { 
+                            console.log("ERROR: Failed to add item: ", error);
+                            return;
+                        } else {
+                            console.log("INFO: Removed 1 video form playlist");
+                        }
+                    })
+                }
+            }) 
+        })
+    })
+}
+
+function delete_playlist(playlist) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            if (playlist in obj['playlist']) {
+                delete obj['playlist'][playlist];
+                console.log("INFO: Removed 1 playlist");
+                var newJSON = JSON.stringify(obj);
+                writeFile(playlistPATH, newJSON, (error) => {
+                    if (error) { 
+                        console.log("ERROR: Failed to add item: ", error);
+                        return;
+                    } else {
+                        console.log("INFO: Removed 1 playlist");
+                    }
+                })
+            } else { console.log("INFO: No playlist found"); }
+        })
+    })
+}
+
+function delete_queque_video(url) {
+    fetch(playlistJSON) 
+    .then( (response) => { 
+        var res = response; 
+        var json = res.json(); 
+        json.then( (res) => {
+            var obj = res;
+            obj['queque'].forEach( (dict, index) => { 
+                if (dict.url == url) {
+                    obj['queque'].splice(index, 1);
+                    var newJSON = JSON.stringify(obj);
+                    writeFile(playlistPATH, newJSON, (error) => {
+                        if (error) { 
+                            console.log("ERROR: Failed to add item: ", error);
+                            return;
+                        } else {
+                            console.log("INFO: Removed 1 video from queque");
+                        }
+                    })
+                    return;
+                }
+            })
+        })
+    })
+}
+
 function find_item_index(type, url, callback) {
     fetch(playlistJSON) 
     .then( (response) => { 
@@ -175,4 +250,7 @@ module.exports = {
     get_playlist_item: get_playlist_item,
     find_playlist_index: find_playlist_index,
     add_dict_json_item: add_dict_json_item,
+    delete_queque_video: delete_queque_video,
+    delete_playlist: delete_playlist,
+    delete_playlist_video: delete_playlist_video,
 }
