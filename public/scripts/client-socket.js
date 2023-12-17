@@ -52,6 +52,7 @@ function sendMsg(type, content) {
 }
 
 function search() {
+    load_search();
     var input = document.querySelector('[bar-field]').value;
     if (input.length > 0) {
         clear_list(); 
@@ -100,11 +101,15 @@ function change_mode(value) { mode = value; }
 function load_search() {
     clear_list();
     change_mode("search");
-    open_side_bar();
+    close_side_bar();
 }
 
 function set_video(thumbnail, title, creator, url) {
     current_video = [thumbnail, title, creator, url];
+}
+
+function change_volume(volume) {
+    sendMsg("change_volume", [volume]);
 }
 
 function delete_queque_video() {

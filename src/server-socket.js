@@ -39,6 +39,10 @@ function add_queque_return(data) {
      json_process.add_json_item(data, "queque");
 }
 
+function mpv_change_volume(volume) {
+    mpv_control.change_volume(volume);
+}
+
 function download_return() {
 }
 
@@ -152,6 +156,9 @@ function message_event(socket) {
                 delete_playlist_video_return(current_playlist, content_value[0]);
             case 'playlist_select':
                 playlist_select_return(content_value[0]);
+                break;
+            case 'change_volume':
+                mpv_change_volume(content_value[0]);
                 break;
             case 'playlist':
                 playlist_return(socket, content_value[0], false);

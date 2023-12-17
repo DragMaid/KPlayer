@@ -45,6 +45,10 @@ async function pause() {
     player_handler(() => { mpv.pause(); });
 }
 
+async function change_volume(volume) {
+    player_handler(() => { mpv.volume(volume); });
+}
+
 mpv.on('stopped', () => {
     try { on_stop_callback(); }
     catch(error) { console.log("WARNING: ", error); }
@@ -55,4 +59,5 @@ module.exports = {
     pause: pause,
     init: init,
     open: open,
+    change_volume: change_volume,
 }

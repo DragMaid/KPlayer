@@ -8,6 +8,7 @@ const playlist_select_panel = document.querySelector("[playlist-select-panel]");
 const playlist_select_overlay = document.querySelector("[playlist-select-overlay]");
 const name_input_panel = document.querySelector("[name-input-panel]");
 const name_input_overlay = document.querySelector("[name-input-overlay]");
+const loading_screen_overlay = document.querySelector("[loading-screen-overlay]");
 
 function open_side_bar() {
     sidebar.classList.toggle("active");
@@ -51,9 +52,11 @@ function close_name_panel() {
 }
 
 function open_loading_screen() {
+    loading_screen_overlay.classList.toggle("active");
 }
 
 function close_loading_screen() {
+    loading_screen_overlay.classList.remove("active");
 }
 
 document.onclick = function(e) {

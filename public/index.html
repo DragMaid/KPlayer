@@ -42,6 +42,10 @@
                 <div class="next-button">
                     <i class="fa fa-step-forward"></i>
                 </div>
+                <div class="volume-slider">
+                    <input type="range" orient="vertical" min="0" max="100" value="70" step="5" oninput="change_volume(this.value)">
+                    <i class="fa fa-volume-up"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -67,6 +71,11 @@
         </div>
     </div>
 
+
+    <div class="loading-screen-overlay" loading-screen-overlay>
+        <div class="hourglass"></div> 
+        <h1>CONNECTING...</h1>
+    </div>
 
     <div class="playlist-select-overlay" playlist-select-overlay id="playlist-select-overlay">
         <div class="playlist-select-panel" playlist-select-panel>
