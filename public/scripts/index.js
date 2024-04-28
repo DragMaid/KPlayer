@@ -66,7 +66,7 @@ document.onclick = function(e) {
     if(e.target.id === "name-input-overlay") { close_name_panel() }
 }
 
-function  play_button_toggle(isPlaying) {
+function play_button_toggle(isPlaying) {
     const toggle_button = document.getElementById('myicon');
     if (isPlaying) { toggle_button.className = "fa fa-play"; }
     else { toggle_button.className = "fa fa-pause"; }

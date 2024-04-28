@@ -1,9 +1,9 @@
 const socket = new WebSocket("ws://localhost:8080");
 
-
 var isPlaying = false;
 var mode = 'search';
 var current_video = [];
+var tmp_video = [];
 
 const pageURL = String(document.URL);
 const mainURL = pageURL.substring(0, nthIndex(pageURL, '/', 3));
@@ -28,6 +28,12 @@ socket.onmessage = function(event) {
         case 'playlist':
             change_preview_image(processed_data[1]);
             break;
+        case 'update_playlist':
+            if (mode == 'playlist') { load_playlist(); }
+            break;
+        case 'update_queque':
+            if (mode == 'queque') { load_queque(); }
+            break;
         default:
             console.log("unrecognizable msg type: (%s) %s", key_value, processed_data[1]);
             break;
@@ -51,14 +57,31 @@ function sendMsg(type, content) {
     socket.send(JSON.stringify([type, content]));
 }
 
+const search_text = document.querySelector('[bar-field]');
 function search() {
     load_search();
-    var input = document.querySelector('[bar-field]').value;
+    var input = search_text.value;
     if (input.length > 0) {
         clear_list(); 
         sendMsg('search', [input]);
     }
 }
+
+// Keybinding configurations
+search_text.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") { search(); }
+});
+
+
+function play_tmp_video() {
+    change_preview_image(tmp_video[0]);
+    set_video(tmp_video[0], tmp_video[1], tmp_video[2], tmp_video[3]);
+    sendMsg('open', [tmp_video[3]]);
+    close_bottom_panel();
+}
+
+// TODO: card no longer automatically play
+// but open panel prompt to play, add to playlist or queque
 
 var current_playlist = null;
 function card_func(thumbnail, title, creator, url) {
@@ -66,9 +89,8 @@ function card_func(thumbnail, title, creator, url) {
     if (url != null) {
         switch (mode) {
             case 'search':
-                change_preview_image(thumbnail);
-                set_video(thumbnail, title, creator, url);
-                sendMsg('open', [url]);
+                set_tmp_video(thumbnail, title, creator, url);
+                open_bottom_panel();
                 break;
             case 'queque':
                 change_preview_image(thumbnail);
@@ -106,6 +128,10 @@ function load_search() {
 
 function set_video(thumbnail, title, creator, url) {
     current_video = [thumbnail, title, creator, url];
+}
+
+function set_tmp_video(thumbnail, title, creator, url) {
+    tmp_video = [thumbnail, title, creator, url];
 }
 
 function change_volume(volume) {
@@ -153,17 +179,18 @@ function add_existing_playlist() {
 }
 
 const name_input = document.querySelector("[text-field]");
+
 function create_new_playlist() {
-    if (current_video.length > 0) { add_to_playlist(name_input.value); }
+    if (tmp_video.length > 0) { add_to_playlist(name_input.value); }
     close_name_panel();
 }
 
 function add_to_playlist(playlist) {
-    if (current_video.length > 0) { sendMsg('add_playlist', [playlist, current_video]); }
+    if (tmp_video.length > 0) { sendMsg('add_playlist', [playlist, tmp_video]); }
 }
 
 function add_queque() {
-    if (current_video.length > 0) { sendMsg('add_queque', current_video); }
+    if (tmp_video.length > 0) { sendMsg('add_queque', tmp_video); }
     close_bottom_panel();
 }
 

@@ -67,7 +67,7 @@
             <div class="side-bar-btn" onclick="load_playlist()"><i class="fa fa-book"></i>PLAYLIST</div>
             <div class="side-bar-btn" onclick="load_queque()"><i class="fa fa-list"></i>QUEQUE</div>
             <div class="side-bar-btn"><i class="fa fa-download"></i>DOWNLOAD</div>
-            <div class="side-bar-btn" onclick="sidebar_close()"><i class="fa fa-times"></i>CLOSE</div>
+            <div class="side-bar-btn" onclick="close_side_bar()"><i class="fa fa-times"></i>CLOSE</div>
         </div>
     </div>
 
@@ -83,7 +83,7 @@
                 <h3>EXIST</h3>
             </div>
             <div class="playlist-create-button" onclick="open_name_panel()">
-                <h3>CREATE</h3>
+                <h3>NEW</h3>
             </div>
         </div>
     </div>
@@ -98,16 +98,22 @@
     <!--bottom-panel-->
     <div class="bottom-panel-overlay" bottom-panel-overlay id="bottom-overlay" bottom-panel-overlay>
         <div class="bottom-panel" bottom-panel>
-            <div class="add-playlist-button" onclick="add_playlist()">
+            <div class="bot-card play-video-button" onclick="play_tmp_video()">
+                <i class="fa fa-play"></i>
+                PLAY VIDEO
+            </div>
+            <div class="bot-card add-playlist-button" onclick="add_playlist()"> 
                 <i class="fa fa-plus"></i>
                 ADD TO PLAYLIST
             </div>
-            <div class="add-queque-button" onclick="add_queque()">
+            <div class="bot-card add-queque-button" onclick="add_queque()">
                 <i class="fa fa-plus"></i>
-                ADD TO QUEQUE</div>
-            <div class="add-download-button" onclick="add_download()">
+                ADD TO QUEQUE
+            </div>
+            <div class="bot-card add-download-button" onclick="add_download()">
                 <i class="fa fa-download"></i>
-                ADD TO DOWNLOAD</div>
+                ADD TO DOWNLOAD
+            </div>
         </div>
     </div>
 
@@ -137,5 +143,4 @@
 
 <script src="./scripts/index.js"></script>
 <script src="./scripts/client-socket.js"></script>
-
 </html
