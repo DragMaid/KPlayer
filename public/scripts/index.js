@@ -35,6 +35,11 @@ function open_playlist_panel() {
     playlist_select_overlay.classList.toggle("active");
 }
 
+function change_volume_value(value) {
+    var slider = document.querySelector('[volume_slider]');
+    slider.value = value;
+}
+
 function close_playlist_panel() {
     playlist_select_panel.classList.remove("active");
     playlist_select_overlay.classList.remove("active");

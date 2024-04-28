@@ -6,7 +6,13 @@ const mpv_control = require('./mpv-controller-api.js');
 const json_process = require('./json-process.js');
 var current_index = -1;
 var current_playlist = null;
-mpv_control.init();
+var current_video_thumbnail = null;
+
+mpv_control.init(
+    function() { request_reload('play'); },
+    function() { request_reload('pause'); },
+    function() { request_reload('pause'); },
+);
 
 function processVideo(data) {
     return [data.thumbnail, data.title, data.author.name, data.url];
@@ -30,25 +36,33 @@ function request_reload(type) {
     switch (type) {
         case 'queque': msg = 'update_queque'; break;
         case 'playlist': msg = 'update_playlist'; break;
+        case 'play': msg = 'play'; break;
+        case 'pause': msg = 'pause'; break;
         default: break;
     }
     server.clients.forEach(client => client.send(JSON.stringify([msg])));
 }
 
-function open_return(socket, url) {
-    mpv_control.open(url[0], function(stdout) {
-        //console.log("INFO: "); 
+function open_return(socket, content) {
+    current_video_thumbnail = content[0];
+    server.clients.forEach(
+        client => send(client, "update_video", content));
+    mpv_control.open(content[3], function() {}, function(stdout) {
     })
 }
 
 function add_playlist_return(playlist, video) {
-    json_process.add_dict_json_item(playlist, video);
-    request_reload('playlist');
+    json_process.add_dict_json_item(
+        playlist, video,
+        () => { request_reload('playlist') }
+    )
 }
 
 function add_queque_return(data) {
-    json_process.add_json_item(data, "queque");
-    request_reload('queque');
+    json_process.add_json_item(
+        data, "queque", 
+        () => { request_reload('queque') }
+    );
 }
 
 function mpv_change_volume(volume) {
@@ -60,16 +74,34 @@ function download_return() {
 
 function play_playlist_via_index(socket) {
     json_process.get_playlist_item_url(current_playlist, current_index, function(URL) {
-        mpv_control.open(URL, function() {
-            json_process.get_playlist_item(current_playlist, function(obj) {
-                if (current_index < obj.length-1) {
-                    current_index = current_index + 1;
-                    server.clients.forEach(
-                        client => send(client, "playlist", obj[current_index].thumbnail));
-                    playlist_return(socket, null, true);
-                }
-            });
-        });
+        mpv_control.open(
+            URL,
+            function() {
+                json_process.get_playlist_item(current_playlist, function(obj) {
+                    if (current_index < obj.length-1) {
+                        server.clients.forEach(
+                            client => {
+                                console.log(obj);
+                                send(client, "update_video", [obj[current_index].thumbnail]);
+                            }
+                        );
+                    }
+                })
+            },
+            function() {
+                json_process.get_playlist_item(current_playlist, function(obj) {
+                    if (current_index < obj.length-1) {
+                        current_index = current_index + 1;
+                        current_video_thumbnail = obj[current_index].thumbnail;
+                        server.clients.forEach(
+                            client => {
+                                send(client, "update_video", [obj[current_index].thumbnail]);
+                            });
+                        playlist_return(socket, null, true);
+                    }
+                });
+            }
+        );
     });
 }
 
@@ -86,13 +118,22 @@ function playlist_return(socket, url, continued) {
     }
 }
 
+
 function play_queque_via_index(socket) {
     json_process.get_item_url('queque', current_index, function(URL) {
-        mpv_control.open(URL, function() {
+        mpv_control.open(
+            URL,
+            function() {
+                json_process.get_item('queque', function(obj) {
+                    server.clients.forEach(
+                        client => send(client, "update_video", [obj[current_index].thumbnail]));
+                })
+            },
+            function() {
             json_process.get_item('queque', function(obj) {
                 if (current_index < obj.length-1) {
                     current_index = current_index + 1;
-                    send(socket, "queque", obj[current_index].thumbnail);
+                    current_video_thumbnail = obj[current_index].thumbnail;
                     queque_return(socket, null, true);
                 }
             });
@@ -172,6 +213,7 @@ function message_event(socket) {
                 break;
             case 'change_volume':
                 mpv_change_volume(content_value[0]);
+                server.clients.forEach(client => send(client, 'update_volume', content_value[0]));
                 break;
             case 'playlist':
                 playlist_return(socket, content_value[0], false);
@@ -181,9 +223,11 @@ function message_event(socket) {
                 break;
             case 'play':
                 mpv_control.play();
+                request_reload('play');
                 break;
             case 'pause':
                 mpv_control.pause();
+                request_reload('pause');
                 break;
             default:
                 unknown_return(key_value);
@@ -192,11 +236,22 @@ function message_event(socket) {
     });
 }
 
+function fetch_current_video(socket) {
+    if (current_video_thumbnail != null) {
+        send(socket, 'update_video', [current_video_thumbnail]);
+    }
+
+    if (mpv_control.get_status()) {
+        request_reload('play');
+    } else { request_reload('pause'); }
+}
+
 function listen() {
     server.on('connection', function connection(socket) {
         console.log("INFO: A new device has connected to server");
         error_event(socket);
         message_event(socket);
+        fetch_current_video(socket);
     });
 }
 

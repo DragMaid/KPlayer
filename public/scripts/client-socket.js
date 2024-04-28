@@ -18,21 +18,31 @@ socket.onmessage = function(event) {
     const processed_data = JSON.parse(event.data);
     const key_value = processed_data[0];
     switch (key_value) {
+        case 'play':
+            isPlaying = true;
+            play_button_toggle(false);
+            break;
+        case 'pause':
+            isPlaying = false;
+            play_button_toggle(true);
+            break;
         case 'create':
             const info = processed_data[1];
             add_card(info[0], info[1], info[2], info[3]);
+            close_loading_screen();
             break;
-        case 'queque':
-            change_preview_image(processed_data[1]);
-            break;
-        case 'playlist':
-            change_preview_image(processed_data[1]);
+        case 'update_video':
+            change_preview_image(processed_data[1][0]);
+            current_video = processed_data[1];
             break;
         case 'update_playlist':
             if (mode == 'playlist') { load_playlist(); }
             break;
         case 'update_queque':
-            if (mode == 'queque') { load_queque(); }
+            if (mode == 'queque') { load_queque(); } 
+            break;
+        case 'update_volume':
+            change_volume_value(processed_data[1]);
             break;
         default:
             console.log("unrecognizable msg type: (%s) %s", key_value, processed_data[1]);
@@ -65,6 +75,7 @@ function search() {
         clear_list(); 
         sendMsg('search', [input]);
     }
+    open_loading_screen();
 }
 
 // Keybinding configurations
@@ -76,7 +87,7 @@ search_text.addEventListener("keyup", function(event) {
 function play_tmp_video() {
     change_preview_image(tmp_video[0]);
     set_video(tmp_video[0], tmp_video[1], tmp_video[2], tmp_video[3]);
-    sendMsg('open', [tmp_video[3]]);
+    sendMsg('open', current_video);
     close_bottom_panel();
 }
 
@@ -224,7 +235,7 @@ function load_queque() {
     close_side_bar();
 }
 
-var playlist_thumbnail = "https://www.kindpng.com/picc/m/106-1068121_transparent-music-icon-png-icon-music-png-png.png";
+var playlist_thumbnail = "https://png.pngtree.com/png-clipart/20210310/original/pngtree-headphone-icon-design-template-isolated-png-image_5934353.jpg";
 function load_playlist() {
     clear_list();
     change_mode('playlist_select');

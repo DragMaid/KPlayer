@@ -14,7 +14,7 @@ function nthIndex(str, pat, n) {
     return i;
 }
 
-function add_json_item(data, type) {
+function add_json_item(data, type, callback) {
     fetch(playlistJSON) 
     .then( (response) => { 
         var res = response; 
@@ -42,11 +42,12 @@ function add_json_item(data, type) {
                     }
                 });
             } else { console.log('INFO: Item already existed!');  }
+            callback();
         })
     })
 }
 
-function add_dict_json_item(playlist, data) {
+function add_dict_json_item(playlist, data, callback) {
     fetch(playlistJSON) 
     .then( (response) => { 
         var res = response; 
@@ -78,6 +79,7 @@ function add_dict_json_item(playlist, data) {
                     }
                 });
             } else { console.log('INFO: Item already existed!');  }
+            callback();
         })
     })
 }
