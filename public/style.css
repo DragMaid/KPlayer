@@ -257,6 +257,16 @@
     border-radius: 25px;
 }
 
+@keyframes sidebar-open {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes sidebar-close {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
 .side-bar-overlay {
     position: absolute;
     top: 0;
@@ -264,7 +274,9 @@
     width: 100vw;
     height: 100vh;
     background-color: transparent;
-    transform: translateX(-100%);
+     -webkit-animation: sidebar-close 0.5s ease-in-out backwards;
+     animation: sidebar-close 0.5s ease-in-out backwards;
+     transform: translateX(-100%);
 }
 
 .side-bar-overlay.active {
@@ -274,8 +286,10 @@
     width: 100vw;
     height: 100vh;
     background-color: transparent;
-    transform: translateX(0);
     z-index: 1;
+     -webkit-animation: sidebar-open 0.5s ease-in-out backwards;
+     animation: sidebar-open 0.5s ease-in-out backwards;
+     transform: translateX(0);
 }
 
 .side-bar {
