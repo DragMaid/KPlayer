@@ -4,6 +4,7 @@ const search_range = 12;
 const yt_search = require('./yt-search.js');
 const mpv_control = require('./mpv-controller-api.js');
 const json_process = require('./json-process.js');
+const jlog = require('./server-logger.js');
 var current_index = -1;
 var current_playlist = null;
 var current_video_thumbnail = null;
@@ -81,7 +82,6 @@ function play_playlist_via_index(socket) {
                     if (current_index < obj.length-1) {
                         server.clients.forEach(
                             client => {
-                                console.log(obj);
                                 send(client, "update_video", [obj[current_index].thumbnail]);
                             }
                         );
@@ -170,12 +170,12 @@ function delete_playlist_video_return(playlist, url) {
     json_process.delete_playlist_video(playlist, url);
 }
 
-function unknown_return(error) {
-    console.log("WARNING: Unrecognizable msg type: %s", error);
+function unknown_return(type) {
+    jlog.log("WARNING", "Unrecognizable msg type: %s" + type);
 }
 
 function error_event(socket) {
-    socket.on('error', console.error);
+    socket.on('error', jlog.log);
 }
 
 function message_event(socket) {
@@ -248,7 +248,7 @@ function fetch_current_video(socket) {
 
 function listen() {
     server.on('connection', function connection(socket) {
-        console.log("INFO: A new device has connected to server");
+        jlog.log("INFO", "A new device has connected to server");
         error_event(socket);
         message_event(socket);
         fetch_current_video(socket);

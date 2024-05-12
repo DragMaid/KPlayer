@@ -3,6 +3,7 @@ const pageURL = String("http://localhost:3000/");
 const mainURL = pageURL.substring(0, nthIndex(pageURL, '/', 3));
 const playlistJSON = mainURL + '/storage';
 const playlistPATH = './storage/playerlist.json';
+const jlog = require('./server-logger.js');
 
 function nthIndex(str, pat, n) {
     var L = str.length,
@@ -35,13 +36,13 @@ function add_json_item(data, type, callback) {
                 var newJSON = JSON.stringify(obj);
                 writeFile(playlistPATH, newJSON, (error) => {
                     if (error) { 
-                        console.log("ERROR: Failed to add item: ", error);
+                        jlog.log("ERROR", "Failed to add item: " + error);
                         return;
                     } else {
-                        console.log("INFO: Added new item to queque!");
+                        jlog.log("INFO", "Added new item to queque " + obj);
                     }
                 });
-            } else { console.log('INFO: Item already existed!');  }
+            } else { jlog.log("INFO", "Item already existed " + obj);  }
             callback();
         })
     })
@@ -72,13 +73,13 @@ function add_dict_json_item(playlist, data, callback) {
                 var newJSON = JSON.stringify(obj);
                 writeFile(playlistPATH, newJSON, (error) => {
                     if (error) { 
-                        console.log("ERROR: Failed to add item: ", error);
+                        jlog.log("ERROR", "Failed to add item: " + error);
                         return;
                     } else {
-                        console.log("INFO: Added new item to playlist!");
+                        jlog.log("INFO", "Added new item to playlist " + obj);
                     }
                 });
-            } else { console.log('INFO: Item already existed!');  }
+            } else { jlog.log("INFO", "Item already existed " + obj);  }
             callback();
         })
     })
@@ -97,10 +98,10 @@ function delete_playlist_video(playlist, url) {
                     var newJSON = JSON.stringify(obj);
                     writeFile(playlistPATH, newJSON, (error) => {
                         if (error) { 
-                            console.log("ERROR: Failed to add item: ", error);
+                            jlog.log("ERROR", "Failed to add item: " + error);
                             return;
                         } else {
-                            console.log("INFO: Removed 1 video form playlist");
+                            jlog.log("INFO", "Removed 1 video form playlist" + obj);
                         }
                     })
                 }
@@ -118,17 +119,16 @@ function delete_playlist(playlist) {
             var obj = res;
             if (playlist in obj['playlist']) {
                 delete obj['playlist'][playlist];
-                console.log("INFO: Removed 1 playlist");
                 var newJSON = JSON.stringify(obj);
                 writeFile(playlistPATH, newJSON, (error) => {
                     if (error) { 
-                        console.log("ERROR: Failed to add item: ", error);
+                        jlog.log("ERROR", "Failed to remove playlist: " + error);
                         return;
                     } else {
-                        console.log("INFO: Removed 1 playlist");
+                        jlog.log("INFO", "Removed 1 playlist" + playlist);
                     }
                 })
-            } else { console.log("INFO: No playlist found"); }
+            } else { jlog.log("INFO", "No playlist found"); }
         })
     })
 }
@@ -146,10 +146,10 @@ function delete_queque_video(url) {
                     var newJSON = JSON.stringify(obj);
                     writeFile(playlistPATH, newJSON, (error) => {
                         if (error) { 
-                            console.log("ERROR: Failed to add item: ", error);
+                            jlog.log("ERROR", "Failed to add item: " + error);
                             return;
                         } else {
-                            console.log("INFO: Removed 1 video from queque");
+                            jlog.log("INFO", "Removed 1 video from queque " + url);
                         }
                     })
                     return;
@@ -184,7 +184,7 @@ function get_item_url(type, index, callback) {
         json.then( (res) => {
             var obj = res;
             try { callback(obj[type][index].url); }
-            catch(err) { console.log(err); }
+            catch(err) { jlog.log("ERROR", err); }
         })
     })
 } 
@@ -197,7 +197,7 @@ function get_playlist_item_url(playlist, index, callback) {
         json.then( (res) => {
             var obj = res;
             try { callback(obj['playlist'][playlist][index].url); }
-            catch(err) { console.log(err); }
+            catch(err) { jlog.log("ERROR", err); }
         })
     })
 } 

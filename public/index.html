@@ -8,7 +8,11 @@
 
     <!--Fontsytle google link-->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
     <!--Reload nodemon module-->
     <script src="/reload/reload.js"></script>
@@ -67,6 +71,7 @@
             <div class="side-bar-btn" onclick="load_playlist()"><i class="fa fa-book"></i>PLAYLIST</div>
             <div class="side-bar-btn" onclick="load_queque()"><i class="fa fa-list"></i>QUEQUE</div>
             <div class="side-bar-btn"><i class="fa fa-download"></i>DOWNLOAD</div>
+            <div class="side-bar-btn" onclick="open_log_screen()"><i class="fa fa-bug"></i>LOGS</div>
             <div class="side-bar-btn" onclick="close_side_bar()"><i class="fa fa-times"></i>CLOSE</div>
         </div>
     </div>
@@ -75,6 +80,11 @@
     <div class="loading-screen-overlay" loading-screen-overlay>
         <div class="hourglass"></div> 
         <h1>CONNECTING...</h1>
+    </div>
+
+    <div class="log-screen-overlay" log-screen-overlay>
+        <div class="close-btn" onclick="close_log_screen()"><i class="fa fa-xmark"></i></div>
+        <div class="log-area" log-area></div>
     </div>
 
     <div class="playlist-select-overlay" playlist-select-overlay id="playlist-select-overlay">

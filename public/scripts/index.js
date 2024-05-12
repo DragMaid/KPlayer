@@ -8,7 +8,9 @@ const playlist_select_panel = document.querySelector("[playlist-select-panel]");
 const playlist_select_overlay = document.querySelector("[playlist-select-overlay]");
 const name_input_panel = document.querySelector("[name-input-panel]");
 const name_input_overlay = document.querySelector("[name-input-overlay]");
-const loading_screen_overlay = document.querySelector("[loading-screen-overlay]");
+const loading_screen_overlay = document.querySelector("[loading-screen-overlay]"); 
+const log_screen_overlay = document.querySelector("[log-screen-overlay]");
+const log_area = document.querySelector("[log-area]");
 
 function open_side_bar() {
     sidebar.classList.toggle("active");
@@ -62,6 +64,19 @@ function open_loading_screen() {
 
 function close_loading_screen() {
     loading_screen_overlay.classList.remove("active");
+}
+
+function open_log_screen() {
+    log_screen_overlay.classList.toggle("active");
+    load_log();
+}
+
+function close_log_screen() {
+    log_screen_overlay.classList.remove("active");
+}
+
+function update_log(content) {
+    log_area.innerHTML = content;
 }
 
 document.onclick = function(e) {

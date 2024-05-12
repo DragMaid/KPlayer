@@ -1,5 +1,3 @@
-const socket = new WebSocket("ws://localhost:8080");
-
 var isPlaying = false;
 var mode = 'search';
 var current_video = [];
@@ -7,7 +5,13 @@ var tmp_video = [];
 
 const pageURL = String(document.URL);
 const mainURL = pageURL.substring(0, nthIndex(pageURL, '/', 3));
-const playlistJSON = mainURL + '/storage';
+const siteURL = pageURL.substring(6, nthIndex(pageURL, '/', 3));
+
+const playlistJSON = mainURL + '/storage'; 
+const logLink = mainURL + '/log';
+const log_interval = 3;
+
+const socket = new WebSocket("ws://localhost:8080");
 
 socket.onopen = function(e) {
     console.log("[open] Connection established");
@@ -264,5 +268,13 @@ function load_playlist_videos() {
             var json = res;
             json['playlist'][current_playlist].forEach( (dict, index) => { add_card(dict.thumbnail, dict.title, dict.creator, dict.url); });
         })
+    })
+}
+
+function load_log() {
+    fetch(logLink) 
+    .then((res) => res.text())
+    .then((content) => {
+        update_log(content.replace(/\n/g, '<br/>'));
     })
 }
