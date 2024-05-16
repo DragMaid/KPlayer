@@ -11,7 +11,7 @@ const playlistJSON = mainURL + '/storage';
 const logLink = mainURL + '/log';
 const log_interval = 3;
 
-const socket = new WebSocket("ws://localhost:8080");
+const socket = new WebSocket("ws://" + siteURL + ":8080"); 
 
 socket.onopen = function(e) {
     console.log("[open] Connection established");
@@ -64,7 +64,7 @@ socket.onclose = function(event) {
 };
 
 socket.onerror = function(error) {
-    alert(`[error]`);
+//alert(`[error]`);
 };
 
 function sendMsg(type, content) {
@@ -79,6 +79,7 @@ function search() {
         clear_list(); 
         sendMsg('search', [input]);
     }
+    hide_keyboard();
     open_loading_screen();
 }
 

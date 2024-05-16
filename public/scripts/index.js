@@ -11,6 +11,7 @@ const name_input_overlay = document.querySelector("[name-input-overlay]");
 const loading_screen_overlay = document.querySelector("[loading-screen-overlay]"); 
 const log_screen_overlay = document.querySelector("[log-screen-overlay]");
 const log_area = document.querySelector("[log-area]");
+var log_interval_process;
 
 function open_side_bar() {
     sidebar.classList.toggle("active");
@@ -68,15 +69,20 @@ function close_loading_screen() {
 
 function open_log_screen() {
     log_screen_overlay.classList.toggle("active");
-    load_log();
+	log_interval_process = setInterval(function() {load_log()}, 1000);
 }
 
 function close_log_screen() {
     log_screen_overlay.classList.remove("active");
+	clearInterval(log_interval_process);
 }
 
 function update_log(content) {
     log_area.innerHTML = content;
+}
+
+function hide_keyboard() {
+    document.activeElement.blur();
 }
 
 document.onclick = function(e) {

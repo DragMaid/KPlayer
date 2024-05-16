@@ -13,17 +13,21 @@
     padding: 0 0;
 }
 
-.body {
-    max-height: 100vh;
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    max-height: 100%;
     overflow: hidden;
     background-color: var(--color-primary);
-    color: var(--color-extra);
     box-sizing: content-box;
 }
 
 .top-navbar {
     width: 100%;
-    height: 6vh;
+    height: 6%;
     display: flex;
     justify-content: flex-start;
     position: relative;
@@ -56,6 +60,13 @@
 
 .search-bar input {
     width: 100%;
+    border-radius: 0;
+    padding-left: 2px;
+    font-size: 16px;
+}
+
+.search-bar input:focus {
+    outline: none;
 }
 
 .search-button {
@@ -78,7 +89,7 @@
 .video-area {
     position: relative;
     width: 100%;
-    height: 35vh;
+    height: 35%;
     background-color: black;
 }
 
@@ -134,7 +145,7 @@
     left: 5vw;
     bottom: 5px;
     font-size: 1.2rem;
-    height: 15vh;
+    height: 12vh;
     width: 8vw;
     background-color: white;
     border-radius: 25px;
@@ -144,6 +155,7 @@
 }
 
 .volume-slider input {
+    width: 10vh;
     aspect-ratio: 1/1;
     transform: rotate(270deg);
     -moz-transform: rotate(270deg);
@@ -188,7 +200,7 @@
 
 .videos-container {
     width: 100%;
-    height: 59vh;
+    height: 59%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,6 +236,10 @@
 
     border-bottom: 1px solid black;
     background-color: var(--color-secondary);
+}
+
+.video-card:hover {
+    border: 2px solid cyan;
 }
 
 .thumbnail-holder {
@@ -283,7 +299,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: transparent;
      -webkit-animation: sidebar-close 0.5s ease-in-out backwards;
      animation: sidebar-close 0.5s ease-in-out backwards;
@@ -296,7 +312,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: transparent;
     z-index: 1;
      -webkit-animation: sidebar-open 0.5s ease-in-out backwards;
@@ -327,6 +343,10 @@
     width: 94%;
     height: 45px;
     padding-left: 5%;
+}
+
+.side-bar-btn:hover {
+    background-color: var(--color-distinct);
 }
 
 .side-bar-btn i {

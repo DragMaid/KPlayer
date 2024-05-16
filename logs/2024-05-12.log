@@ -1,0 +1,71 @@
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 15:46:27 | INFO | Initilialized mpv player
+2024-05-12 15:46:27 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 15:47:20 | INFO | Initilialized mpv player
+2024-05-12 15:47:20 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
+2024-05-12 15:47:23 | INFO | A new device has connected to server
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 16:46:35 | INFO | Initilialized mpv player
+2024-05-12 16:46:35 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 16:58:02 | INFO | Initilialized mpv player
+2024-05-12 16:58:02 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 18:26:46 | INFO | Initilialized mpv player
+2024-05-12 18:26:46 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 18:27:46 | INFO | Initilialized mpv player
+2024-05-12 18:27:46 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: html,css,js[39m
+[32m[nodemon] starting `node ,node_modules/ ./src/server-dev.js`[39m
+2024-05-12 18:35:25 | INFO | Initilialized mpv player
+2024-05-12 18:35:25 | INFO | Web server listening on port 3000
+[Node-MPV]: Connected to socket '/tmp/node-mpv.sock'
+[Node-MPV] sending stimulus
+[Node-MPV] stimulus received true
